@@ -141,7 +141,7 @@ Formato: número, data, status, contexto, decisão, porquê, consequências. Nã
 - **Status:** vigente
 - **Decisão:** Fase 3 chama a API Anthropic (default `claude-sonnet-4-6`, override `ANTHROPIC_MODEL`). A saída é validada por `assertEvaluation` antes de persistir. Sem chave, não há nota.
 - **Por quê:** Feedback com evidência e exemplo reescrito não cabe numa rubrica só de regex. Autor escolheu Anthropic. Sonnet 4 (`claude-sonnet-4-20250514`) aposentou em jun/2026.
-- **Consequências:** `.env.local` obrigatório para pontuar. Custo por reavaliação. Não usamos LLM para entrevistas ainda (Fase 4).
+- **Consequências:** `.env` obrigatório para pontuar. Custo por reavaliação. Não usamos LLM para entrevistas ainda (Fase 4).
 
 ## D-018 — CV entra como texto e/ou PDF; não reescrevemos o arquivo
 
@@ -157,4 +157,12 @@ Formato: número, data, status, contexto, decisão, porquê, consequências. Nã
 - **Status:** vigente
 - **Decisão:** Três campos de texto. Sem login LinkedIn, sem scrape de URL.
 - **Por quê:** OAuth é escopo e conta de app. URL pública costuma vir bloqueada. Colar é suficiente para ferramenta pessoal.
-- **Consequências:** A pessoa copia do próprio perfil. Não prometemos “cole o link e magia”.
+- **Consequências:** A pessoa copia do próprio perfil. A UI explica com texto claro e balões de ajuda. Não prometemos “cole o link e magia”.
+
+## D-020 — Segredos em `.env`; `.env.example` só com nomes
+
+- **Data:** 17 set 2026
+- **Status:** vigente
+- **Decisão:** Valores reais (`ANTHROPIC_API_KEY`, `ANTHROPIC_MODEL`) ficam em `.env`. `.env.example` só documenta os nomes. Não exigimos `.env.local`.
+- **Por quê:** Next.js carrega `.env` em todos os ambientes. `.env.local` também funciona e sobrescreve `.env`, mas o autor já criou `.env`. Um arquivo só, gitignored.
+- **Consequências:** `.env` nunca vai para o git. Depois de criar ou editar `.env`, o `npm run dev` precisa ser reiniciado. `.env.example` pode (e deve) ser commitado.

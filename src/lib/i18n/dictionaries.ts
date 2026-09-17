@@ -41,7 +41,7 @@ const pt = {
     "Composto 57% currículo + 43% LinkedIn. Ainda não é o Readiness completo (faltam entrevistas).",
   nextTitle: "Próximo passo",
   nextBody:
-    "Envie o currículo em inglês e cole Headline, About e experiências do LinkedIn.",
+    "Envie o currículo em inglês e cole o texto do Headline, do Sobre e das experiências do LinkedIn.",
   nextCv: "Avaliar o currículo agora.",
   nextLinkedin: "Avaliar o LinkedIn agora.",
   nextPhase4:
@@ -58,11 +58,25 @@ const pt = {
   cvSubmit: "Avaliar currículo",
   liTitle: "LinkedIn",
   liLead:
-    "Cole Headline, About e experiências. Sem OAuth e sem link mágico — copie do próprio perfil.",
+    "Abra seu LinkedIn, copie o texto de cada seção e cole abaixo.",
+  liLeadHelpLabel: "Por que copiar o texto",
+  liLeadHint:
+    "Não cole o link do perfil. O LinkedIn bloqueia a leitura automática. Copie o texto da tela e cole aqui.",
+  liLeadImageAlt:
+    "Ilustração: copie Headline, About e Experiência do perfil; não cole o link.",
   liHeadline: "Headline",
+  liHeadlineHelpLabel: "O que é Headline",
+  liHeadlineHint:
+    "A frase embaixo do seu nome. Perfil → lápis no topo → copie essa linha.",
+  liHeadlineImageAlt: "Ilustração da Headline, a linha abaixo do nome no perfil.",
   liAbout: "About",
+  liAboutHelpLabel: "O que é About",
+  liAboutHint:
+    "A seção Sobre. Role o perfil até Sobre, abra o lápis e copie o texto.",
+  liAboutImageAlt: "Ilustração da seção About no perfil.",
   liExperience: "Experiências",
   liSubmit: "Avaliar LinkedIn",
+  composerHint: "Enter quebra a linha. Shift+Enter envia.",
   analyzing: "Avaliando…",
   lastScore: "Última nota",
   strengths: "Acertos",
@@ -71,9 +85,9 @@ const pt = {
   exampleLabel: "Exemplo reescrito",
   analyzeAgain: "Reavaliar",
   missingKeyHint:
-    "Coloque ANTHROPIC_API_KEY em .env.local (veja .env.example). Sem chave não inventamos nota.",
+    "Coloque ANTHROPIC_API_KEY em .env. Sem chave não inventamos nota.",
   errorEmpty: "Falta texto suficiente para avaliar.",
-  errorKey: "Falta ANTHROPIC_API_KEY no .env.local.",
+  errorKey: "Falta ANTHROPIC_API_KEY no .env.",
   errorLlm: "A Anthropic não devolveu uma avaliação. Tente de novo.",
   errorPdf:
     "Não deu para ler o PDF. Use um PDF com texto selecionável ou cole o conteúdo.",
@@ -155,11 +169,25 @@ const en: Dictionary = {
   cvSubmit: "Evaluate resume",
   liTitle: "LinkedIn",
   liLead:
-    "Paste Headline, About, and experience. No OAuth and no magic URL — copy from your own profile.",
+    "Open your LinkedIn, copy the text of each section, and paste it below.",
+  liLeadHelpLabel: "Why paste the text",
+  liLeadHint:
+    "Do not paste your profile URL. LinkedIn blocks automatic reading. Copy the text on screen and paste it here.",
+  liLeadImageAlt:
+    "Illustration: copy Headline, About, and Experience from the profile; do not paste the link.",
   liHeadline: "Headline",
+  liHeadlineHelpLabel: "What Headline is",
+  liHeadlineHint:
+    "The line under your name. Profile → pencil at the top → copy that line.",
+  liHeadlineImageAlt: "Illustration of the Headline, the line under the name.",
   liAbout: "About",
+  liAboutHelpLabel: "What About is",
+  liAboutHint:
+    "The About section. Scroll to About, open the pencil, and copy the text.",
+  liAboutImageAlt: "Illustration of the About section on a profile.",
   liExperience: "Experience",
   liSubmit: "Evaluate LinkedIn",
+  composerHint: "Enter inserts a new line. Shift+Enter submits.",
   analyzing: "Evaluating…",
   lastScore: "Latest score",
   strengths: "Strengths",
@@ -168,9 +196,9 @@ const en: Dictionary = {
   exampleLabel: "Rewritten example",
   analyzeAgain: "Evaluate again",
   missingKeyHint:
-    "Set ANTHROPIC_API_KEY in .env.local (see .env.example). We will not invent a score without it.",
+    "Set ANTHROPIC_API_KEY in .env. We will not invent a score without it.",
   errorEmpty: "Not enough text to evaluate.",
-  errorKey: "ANTHROPIC_API_KEY is missing from .env.local.",
+  errorKey: "ANTHROPIC_API_KEY is missing from .env.",
   errorLlm: "Anthropic did not return an evaluation. Try again.",
   errorPdf:
     "Could not read the PDF. Use a text-selectable PDF or paste the contents.",

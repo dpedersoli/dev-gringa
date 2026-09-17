@@ -2,6 +2,22 @@
 
 Eventos do projeto, do mais recente para o mais antigo. Fatos, não planos.
 
+## 2026-09-17 — Fase 3 conferida ao vivo
+
+- CV (PDF), LinkedIn colado e Profile Score numérico no painel, neste computador.
+- Critério de saída da Fase 3 atendido. Sem entrevistas.
+
+## 2026-09-17 — LinkedIn: copiar texto, não o link
+
+- Texto da página explica que não dá para avaliar pela URL do perfil (D-019).
+- Balões de ajuda em Headline, About e no texto de introdução, com ilustração.
+- Enter quebra linha nos formulários; Shift+Enter envia.
+
+## 2026-09-17 — Segredos em `.env`
+
+- Valores reais em `.env` (gitignored). `.env.example` só com os nomes das variáveis (D-020).
+- UI, regras e docs deixam de apontar para `.env.local`.
+
 ## 2026-09-17 — Fase 3: análise de CV e LinkedIn
 
 - Spec profunda em `docs/phases/03-profile-block.md`.

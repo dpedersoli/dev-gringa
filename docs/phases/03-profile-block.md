@@ -1,6 +1,6 @@
 # Fase 3 — Bloco de perfil (atual, aprofundada)
 
-**Status:** código e spec no repo (17 set 2026). Pontuação com API ainda depende de `.env.local`.  
+**Status:** conferida ao vivo (17 set 2026). CV + LinkedIn + Profile Score. Código limitado a este bloco.  
 **Código:** permitido, limitado a CV + LinkedIn + Profile Score.  
 **Não fazer:** entrevistas, áudio, matching, live code, OAuth LinkedIn, reescrever o PDF por você.
 
@@ -34,9 +34,11 @@ D-006: ATS e busca passiva acontecem antes da call. Sem esta nota, o restante do
 
 ### LinkedIn (`/linkedin`)
 
-1. Cola Headline, About e o bloco de experiências (texto). Sem URL scraping, sem OAuth.
-2. Mesmo contrato de avaliação.
-3. Reavaliar substitui a “última” (histórico fica em `evaluations.json`).
+1. Cola Headline, About e o bloco de experiências (texto). Sem URL, sem login LinkedIn.
+2. Campos Headline e About têm ícone de ajuda (o que é, onde copiar, ilustração).
+3. Enter quebra linha; Shift+Enter envia.
+4. Mesmo contrato de avaliação.
+5. Reavaliar substitui a “última” (histórico fica em `evaluations.json`).
 
 ### Painel
 
@@ -77,7 +79,7 @@ Cada avaliação passa em `assertEvaluation` **antes** de gravar. Se o modelo de
 | Escolha | Por quê |
 | --- | --- |
 | Anthropic Messages API (`claude-sonnet-4-6` default, override `ANTHROPIC_MODEL`) | D-017. Sonnet 4 aposentou em jun/2026; 4-6 é o sucessor estável para JSON estruturado. |
-| `ANTHROPIC_API_KEY` em `.env.local` | Nunca no git. |
+| `ANTHROPIC_API_KEY` em `.env` | Valores reais nunca no git. `.env.example` só lista os nomes. |
 | `unpdf` para PDF | WASM, Windows-friendly. |
 | JSON em `data/` continua | D-009. Novos: `evaluations.json` (append), `artifacts.json` (último CV/LI). |
 

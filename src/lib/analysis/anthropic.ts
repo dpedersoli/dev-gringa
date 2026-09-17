@@ -39,7 +39,7 @@ export async function analyzeWithAnthropic(input: {
   profile: Profile;
   locale: Locale;
 }): Promise<Evaluation> {
-  const apiKey = process.env.ANTHROPIC_API_KEY;
+  const apiKey = process.env.ANTHROPIC_API_KEY?.trim();
   if (!apiKey) {
     throw new AnalysisError(
       "ANTHROPIC_API_KEY is not set",
@@ -47,7 +47,7 @@ export async function analyzeWithAnthropic(input: {
     );
   }
 
-  const model = process.env.ANTHROPIC_MODEL ?? "claude-sonnet-4-6";
+  const model = process.env.ANTHROPIC_MODEL?.trim() || "claude-sonnet-4-6";
   const client = new Anthropic({ apiKey });
   const language =
     input.locale === "en-US" ? "English (US)" : "Brazilian Portuguese";

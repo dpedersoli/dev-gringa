@@ -15,4 +15,4 @@ Antes de qualquer trabalho: `docs/STATUS.md`, `docs/DECISIONS.md`, `docs/phases/
 Fase 2 = perfil local + dashboard + contrato de avaliação.
 Fase 3 = CV + LinkedIn via Anthropic (`assertEvaluation` antes de persistir). Sem entrevistas, áudio, auth.
 
-Persistência: `data/*.json` via `src/lib/storage`. Avaliação: `assertEvaluation` em `src/lib/domain/evaluation.ts`. Chave: `ANTHROPIC_API_KEY` em `.env.local`.
+Persistência: `data/*.json` via `src/lib/storage`. Avaliação: `assertEvaluation` em `src/lib/domain/evaluation.ts`. Segredos em `.env` (não commitar). Nomes das variáveis em `.env.example`.

@@ -8,11 +8,10 @@ Ferramenta pessoal web para capacitação de dev pleno brasileiro no processo se
 
 Fase 3 — bloco de perfil (CV + LinkedIn). Ver [docs/STATUS.md](docs/STATUS.md).
 
-Não é startup e não tem login. Análise usa Anthropic (`ANTHROPIC_API_KEY` em `.env.local`).
+Não é startup e não tem login. Análise usa Anthropic (`ANTHROPIC_API_KEY` em `.env`).
 
 ```bash
 cd C:\Daniel\Developer\dev-gringa
-copy .env.example .env.local
 npm run dev
 ```
 

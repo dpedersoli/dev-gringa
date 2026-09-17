@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { AppShell } from "@/components/AppShell";
 import { EvaluationResult } from "@/components/EvaluationResult";
+import { InfoTip } from "@/components/InfoTip";
 import { LinkedinForm } from "@/components/LinkedinForm";
 import { latestByModule } from "@/lib/domain/evaluation";
 import { getDictionary } from "@/lib/i18n/dictionaries";
@@ -24,7 +25,16 @@ export default async function LinkedinPage({
       <h1 className="font-[family-name:var(--font-serif)] text-4xl tracking-tight">
         {dict.liTitle}
       </h1>
-      <p className="mt-3 max-w-2xl text-[var(--muted)] leading-7">{dict.liLead}</p>
+      <p className="mt-3 max-w-2xl text-[var(--muted)] leading-7">
+        {dict.liLead}
+        <InfoTip
+          label={dict.liLeadHelpLabel}
+          text={dict.liLeadHint}
+          imageSrc="/help/linkedin-paste.png"
+          imageAlt={dict.liLeadImageAlt}
+          align="end"
+        />
+      </p>
       {latest.linkedin ? (
         <div className="mt-8">
           <EvaluationResult dict={dict} evaluation={latest.linkedin} />
