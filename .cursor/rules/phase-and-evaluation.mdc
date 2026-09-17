@@ -7,8 +7,9 @@ alwaysApply: true
 
 Fase atual = número em `docs/STATUS.md`. Código e spec profunda só dela.
 
-- Fase 2: perfil, dashboard vazio, contrato de tipos. Sem CV, LinkedIn, áudio, LLM, auth.
-- Toda avaliação futura (Fase 3+) deve passar em `assertEvaluation` (`src/lib/domain/evaluation.ts`): score 0–100, 3 strengths, 3 improvements, 1 nextStep.
-- Dimensão não medida nunca aparece como nota 0.
+- Fase 3: CV + LinkedIn via Anthropic. Sem entrevistas, áudio, matching, auth.
+- Toda avaliação deve passar em `assertEvaluation` (`src/lib/domain/evaluation.ts`): score 0–100, 3 strengths, 3 improvements, 1 nextStep.
+- Dimensão não medida nunca aparece como nota 0. Profile Score só com CV e LinkedIn juntos.
 - Entrevista (quando existir): inglês-US no áudio e no enunciado; timer sem pausa.
 - Ferramenta pessoal, um perfil local, JSON em `data/`. Não deployar na Vercel sem ADR de storage.
+- Chave Anthropic só em `.env.local`. Sem chave, não inventar nota.

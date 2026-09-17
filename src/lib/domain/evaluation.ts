@@ -28,7 +28,7 @@ export class EvaluationContractError extends Error {
   }
 }
 
-/** Fases 3+ devem passar por aqui antes de persistir. Fase 2 não gera avaliações. */
+/** Fases 3+ devem passar por aqui antes de persistir. */
 export function assertEvaluation(value: Evaluation): void {
   if (!Number.isInteger(value.score) || value.score < 0 || value.score > 100) {
     throw new EvaluationContractError(
@@ -75,4 +75,13 @@ export function latestByModule(
     }
   }
   return map;
+}
+
+/** Profile Score: only when both modules exist. Weights match docs/product/score.md (20:15). */
+export function profileScore(
+  cv?: Evaluation,
+  linkedin?: Evaluation,
+): number | null {
+  if (!cv || !linkedin) return null;
+  return Math.round((cv.score * 20 + linkedin.score * 15) / 35);
 }

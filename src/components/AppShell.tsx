@@ -23,12 +23,24 @@ export function AppShell({
             </p>
           </div>
           {showNav ? (
-            <nav className="flex gap-1 text-sm">
+            <nav className="flex flex-wrap gap-1 text-sm">
               <Link
                 href="/"
                 className="rounded-sm px-3 py-1.5 text-[var(--foreground)] hover:bg-[var(--chip)]"
               >
                 {dict.navPanel}
+              </Link>
+              <Link
+                href="/cv"
+                className="rounded-sm px-3 py-1.5 text-[var(--foreground)] hover:bg-[var(--chip)]"
+              >
+                {dict.navCv}
+              </Link>
+              <Link
+                href="/linkedin"
+                className="rounded-sm px-3 py-1.5 text-[var(--foreground)] hover:bg-[var(--chip)]"
+              >
+                {dict.navLinkedin}
               </Link>
               <Link
                 href="/profile"

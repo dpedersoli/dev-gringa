@@ -6,12 +6,13 @@ Ferramenta pessoal web para capacitação de dev pleno brasileiro no processo se
 
 ## Estado atual
 
-Fase 2 — Fundação (feita). Ver [docs/STATUS.md](docs/STATUS.md).
+Fase 3 — bloco de perfil (CV + LinkedIn). Ver [docs/STATUS.md](docs/STATUS.md).
 
-Não é startup, não tem login, não analisa CV ainda. Rode local.
+Não é startup e não tem login. Análise usa Anthropic (`ANTHROPIC_API_KEY` em `.env.local`).
 
 ```bash
 cd C:\Daniel\Developer\dev-gringa
+copy .env.example .env.local
 npm run dev
 ```
 
@@ -19,10 +20,10 @@ Abra [http://localhost:3000](http://localhost:3000). Na primeira visita: onboard
 
 ## O que este repo contém
 
-- App Next.js 16 (perfil + dashboard vazio + contrato de avaliação)
+- App Next.js 16 (perfil, dashboard, análise de CV/LinkedIn)
 - Documentação permanente: decisões, porquês, fases, changelog
 - Regras Cursor em `.cursor/rules/` para a próxima conversa não recomeçar do zero
 
 ## O que não contém (ainda)
 
-Análise de currículo/LinkedIn (Fase 3), entrevistas (Fase 4), matching (Fase 5), áudio, LLM, mobile.
+Entrevistas (Fase 4), matching (Fase 5), áudio, mobile.

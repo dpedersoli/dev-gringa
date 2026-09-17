@@ -2,6 +2,14 @@
 
 Eventos do projeto, do mais recente para o mais antigo. Fatos, não planos.
 
+## 2026-09-17 — Fase 3: análise de CV e LinkedIn
+
+- Spec profunda em `docs/phases/03-profile-block.md`.
+- Rotas `/cv` e `/linkedin`; rubrica no prompt Anthropic (`claude-sonnet-4-6`); saída passa por `assertEvaluation`.
+- Profile Score só com os dois módulos (57/43). Sem chave: erro `missing-key`, sem nota inventada.
+- PDF via `unpdf`. LinkedIn = três campos colados (D-018, D-019).
+- Fundação anterior enviada a `origin/master` (`2f55e79`).
+
 ## 2026-09-16 — Fase 2 conferida no browser e encerrada
 
 - Fluxo real: `/` redireciona para onboarding sem perfil; salvar grava `data/profile.json`; painel mostra Profile Score **Não medido** (não zero); `/profile` reedita; `uiLocale: en-US` troca o chrome para inglês.

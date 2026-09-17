@@ -9,9 +9,9 @@
 
 Dimensão **não medida não vale zero**. Antes das entrevistas, o produto mostra só o **Profile Score** (CV + LinkedIn). Um “Readiness 47” inflado para baixo por buracos ainda não avaliados é mentira.
 
-Na Fase 2 não há nenhuma dimensão medida. A UI diz “não medido”, nunca `0`.
+Na Fase 3, CV e LinkedIn passam a ser medidos. O composto **Profile Score** só aparece quando os dois existem. Um módulo sozinho mostra a nota dele, nunca zera o outro.
 
-## Pesos — Profile Score (Fases 3+)
+## Pesos — Profile Score (Fase 3)
 
 Usado quando CV e LinkedIn existirem:
 

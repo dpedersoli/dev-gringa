@@ -89,7 +89,8 @@ Formato: número, data, status, contexto, decisão, porquê, consequências. Nã
 ## D-011 — Sem LLM, upload de CV, áudio ou matching na Fase 2
 
 - **Data:** 16 set 2026
-- **Status:** vigente
+- **Status:** superseded por D-017 (LLM só para CV/LinkedIn na Fase 3). Áudio e matching continuam fora.
+
 - **Decisão:** Fundação não chama modelo, não parseia PDF, não pede microfone.
 - **Por quê:** Método do projeto: só a fase atual. CV é Fase 3. Entrevista é Fase 4.
 - **Consequências:** Módulos no dashboard aparecem travados/“em breve”, exceto perfil (editável).
@@ -133,3 +134,27 @@ Formato: número, data, status, contexto, decisão, porquê, consequências. Nã
 - **Decisão:** Não construir modo stealth / respostas ao vivo na call verdadeira (o que o Final Round AI vende).
 - **Por quê:** Não é o produto. Contamina posicionamento e risco.
 - **Consequências:** Qualquer feature “ajudar durante a entrevista real” é recusada, mesmo como “opcional”.
+
+## D-017 — Anthropic gera as avaliações de CV e LinkedIn
+
+- **Data:** 17 set 2026
+- **Status:** vigente
+- **Decisão:** Fase 3 chama a API Anthropic (default `claude-sonnet-4-6`, override `ANTHROPIC_MODEL`). A saída é validada por `assertEvaluation` antes de persistir. Sem chave, não há nota.
+- **Por quê:** Feedback com evidência e exemplo reescrito não cabe numa rubrica só de regex. Autor escolheu Anthropic. Sonnet 4 (`claude-sonnet-4-20250514`) aposentou em jun/2026.
+- **Consequências:** `.env.local` obrigatório para pontuar. Custo por reavaliação. Não usamos LLM para entrevistas ainda (Fase 4).
+
+## D-018 — CV entra como texto e/ou PDF; não reescrevemos o arquivo
+
+- **Data:** 17 set 2026
+- **Status:** vigente
+- **Decisão:** Colar texto e/ou upload de PDF (extração `unpdf`). O produto devolve gaps e um exemplo reescrito **no feedback**, não um novo PDF para candidatura.
+- **Por quê:** Time-to-value. Gerar kit de candidatura é o território do prepara.cv (anti-escopo).
+- **Consequências:** Scan/imagem sem camada de texto falha de forma explícita.
+
+## D-019 — LinkedIn é colar Headline + About + experiências, sem OAuth
+
+- **Data:** 17 set 2026
+- **Status:** vigente
+- **Decisão:** Três campos de texto. Sem login LinkedIn, sem scrape de URL.
+- **Por quê:** OAuth é escopo e conta de app. URL pública costuma vir bloqueada. Colar é suficiente para ferramenta pessoal.
+- **Consequências:** A pessoa copia do próprio perfil. Não prometemos “cole o link e magia”.
