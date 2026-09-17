@@ -1,0 +1,14 @@
+---
+description: Método de fases e contrato de avaliação.
+alwaysApply: true
+---
+
+# Fases e avaliação
+
+Fase atual = número em `docs/STATUS.md`. Código e spec profunda só dela.
+
+- Fase 2: perfil, dashboard vazio, contrato de tipos. Sem CV, LinkedIn, áudio, LLM, auth.
+- Toda avaliação futura (Fase 3+) deve passar em `assertEvaluation` (`src/lib/domain/evaluation.ts`): score 0–100, 3 strengths, 3 improvements, 1 nextStep.
+- Dimensão não medida nunca aparece como nota 0.
+- Entrevista (quando existir): inglês-US no áudio e no enunciado; timer sem pausa.
+- Ferramenta pessoal, um perfil local, JSON em `data/`. Não deployar na Vercel sem ADR de storage.

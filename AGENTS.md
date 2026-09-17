@@ -7,3 +7,11 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
+
+# Projeto (fonte da verdade)
+
+Antes de qualquer trabalho: `docs/STATUS.md`, `docs/DECISIONS.md`, `docs/phases/` da fase atual.
+
+Fase 2 = perfil local + dashboard + contrato de avaliação. Sem CV, áudio, LLM, auth.
+
+Persistência: `data/*.json` via `src/lib/storage`. Avaliação: `assertEvaluation` em `src/lib/domain/evaluation.ts`.

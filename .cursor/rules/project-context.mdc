@@ -1,0 +1,18 @@
+---
+description: Sempre carregar a memória permanente do projeto antes de agir.
+alwaysApply: true
+---
+
+# Contexto permanente
+
+Antes de qualquer mudança de produto ou código, ler:
+
+1. `docs/STATUS.md` — fase atual e o que falta
+2. `docs/DECISIONS.md` — decisões vigentes
+3. `docs/phases/` da fase marcada no STATUS
+
+Fonte da verdade = este git (`C:\Daniel\Developer\dev-gringa\docs`). Não usar canvas temporário, Agent Store nem `.cursor/plans/` no lugar disso.
+
+No fim da sessão que alterar o produto: atualizar `STATUS.md` e `CHANGELOG.md`. Decisão nova = entrada nova em `DECISIONS.md` com o porquê.
+
+Não implementar nem aprofundar fase futura. Só a fase do STATUS.
