@@ -20,7 +20,15 @@ Usado quando CV e LinkedIn existirem:
 
 (Equivalente a 20:15 do score completo, renormalizado.)
 
-## Pesos — Readiness Score completo (depois da Fase 4)
+## Pesos — Readiness Score (Fase 4)
+
+Quando CV, LinkedIn, RH, técnica e fit existem (D-025):
+
+`round((cv*20 + linkedin*15 + rh*15 + tech_vibe*20 + fit*10) / 80)`
+
+A linha “Inglês falado 20” do desenho completo **não** é um sexto módulo nesta fase: cada entrevista já pesa inglês na rubrica. Um recorte dedicado exigiria ADR. Dimensão que ainda falta (desafio, matching) **não** entra como zero.
+
+## Pesos — Readiness Score completo (visão, depois das falas + inglês dedicado)
 
 | Dimensão | Peso | Fonte |
 | --- | --- | --- |
@@ -38,8 +46,8 @@ Pesos são decisão de produto, não estatística empírica. Mudar exige ADR.
 Toda avaliação persistida, de qualquer módulo, devolve:
 
 1. `score` inteiro 0–100
-2. exatamente 3 `strengths` com `claim` + `evidence` (citação do CV ou da transcrição)
-3. exatamente 3 `improvements` ranqueadas, cada uma com `claim` + `example` reescrito
+2. um ou mais `strengths` com `claim` + `evidence` (citação do CV ou da transcrição) — sem cota (D-031)
+3. um ou mais `improvements` ranqueadas, cada uma com `claim` + `example` reescrito — sem cota
 4. um único `nextStep` (string)
 
 Não é hire/no-hire. Não é match contra uma vaga na v1.

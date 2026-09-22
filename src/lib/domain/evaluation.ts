@@ -8,7 +8,7 @@ export type EvaluationStrength = {
 export type EvaluationImprovement = {
   claim: string;
   example: string;
-  rank: 1 | 2 | 3;
+  rank: number;
 };
 
 export type Evaluation = {
@@ -35,20 +35,21 @@ export function assertEvaluation(value: Evaluation): void {
       `score must be an integer 0–100, got ${value.score}`,
     );
   }
-  if (value.strengths.length !== 3) {
-    throw new EvaluationContractError("exactly 3 strengths are required");
+  if (value.strengths.length < 1) {
+    throw new EvaluationContractError("at least 1 strength is required");
   }
   for (const item of value.strengths) {
     if (!item.claim.trim() || !item.evidence.trim()) {
       throw new EvaluationContractError("each strength needs claim and evidence");
     }
   }
-  if (value.improvements.length !== 3) {
-    throw new EvaluationContractError("exactly 3 improvements are required");
+  if (value.improvements.length < 1) {
+    throw new EvaluationContractError("at least 1 improvement is required");
   }
-  const ranks = value.improvements.map((item) => item.rank).sort();
-  if (ranks[0] !== 1 || ranks[1] !== 2 || ranks[2] !== 3) {
-    throw new EvaluationContractError("improvements must be ranked 1, 2 and 3");
+  const ranks = [...value.improvements.map((item) => item.rank)].sort((a, b) => a - b);
+  const expected = value.improvements.map((_, index) => index + 1);
+  if (ranks.some((rank, index) => rank !== expected[index])) {
+    throw new EvaluationContractError("improvements must be ranked 1..n without gaps");
   }
   for (const item of value.improvements) {
     if (!item.claim.trim() || !item.example.trim()) {
@@ -84,4 +85,18 @@ export function profileScore(
 ): number | null {
   if (!cv || !linkedin) return null;
   return Math.round((cv.score * 20 + linkedin.score * 15) / 35);
+}
+
+/** Readiness: only when written + three oral modules exist (D-025). */
+export function readinessScore(latest: Partial<Record<ModuleId, Evaluation>>): number | null {
+  const cv = latest.cv;
+  const linkedin = latest.linkedin;
+  const rh = latest.rh;
+  const tech = latest.tech_vibe;
+  const fit = latest.fit;
+  if (!cv || !linkedin || !rh || !tech || !fit) return null;
+  return Math.round(
+    (cv.score * 20 + linkedin.score * 15 + rh.score * 15 + tech.score * 20 + fit.score * 10) /
+      80,
+  );
 }

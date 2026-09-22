@@ -1,4 +1,4 @@
-export { assertEvaluation, latestByModule, profileScore } from "./evaluation";
+export { assertEvaluation, latestByModule, profileScore, readinessScore } from "./evaluation";
 export type {
   Evaluation,
   EvaluationImprovement,
