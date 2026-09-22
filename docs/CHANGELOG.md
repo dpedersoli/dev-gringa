@@ -2,6 +2,50 @@
 
 Eventos do projeto, do mais recente para o mais antigo. Fatos, não planos.
 
+## 2026-09-22 — Fase 5 conferida
+
+- O autor validou ao vivo o questionário direto do perfil e o rótulo de live code por empresa. Com canais, empresas e cursos já conferidos no mesmo dia, a Fase 5 fecha.
+- Fica anotada, sem código, a próxima tarefa: perguntas indiretas que pré-preenchem o perfil, com o perfil editável depois (D-044).
+
+## 2026-09-22 — Rótulo de live code por empresa
+
+- Cada empresa em `/matching` mostra a política pública de IA na prova: proibida, permitida, esperada ou mista. Sem página pública, o convite da vaga é a regra. O rótulo não esconde o card e não abre editor (D-043).
+
+## 2026-09-22 — Questionário opcional no perfil
+
+- O perfil ganha um bloco opcional: faixa, visto, tipo de empresa, IC ou gestão e domínio (D-042). Em branco, canais e empresas seguem como antes.
+- Tipo e domínio filtram empresa. Rede filtra Arc, Turing, Toptal e Gun.io. Faixa não esconde card. Remoto sem visto marca a triagem dos EUA como cedo quando já existe Readiness. Gestão avisa que o catálogo é IC e entra na avaliação.
+
+## 2026-09-22 — Cursos e ícone nos termos
+
+- `/matching` ganha cursos com URL. A stack escolhe; inglês falado entra sempre. Mercado, contrato e nota não escondem o curso (D-040).
+- Termo que não é óbvio ganha um ícone. Passar o mouse (ou focar) explica o que é e onde entra. Vale para o que já está na tela e para visto, IC ou gestão, domínio e live code (D-041).
+
+## 2026-09-22 — Aviso em cada salvamento
+
+- Salvar o perfil de novo, avaliar de novo ou encerrar a entrevista de novo mostra o aviso outra vez. O primeiro não esconde os seguintes.
+
+## 2026-09-22 — Tema no header e aviso em cada ação
+
+- O header tem o ícone de tema claro/escuro, à direita. A escolha fica neste navegador.
+- Salvar perfil, avaliar currículo, avaliar LinkedIn e encerrar entrevista mostram sucesso ou erro. Falha de microfone, de áudio de backup, de pergunta extra ou de cancelamento também avisa (D-039).
+
+## 2026-09-22 — Quadro de matching conferido
+
+- Canais e empresas foram conferidos ao vivo nos recortes de contrato longo, longo com freela, só freela, contrato curto e um mercado só.
+
+## 2026-09-22 — Empresas no matching, pelo contrato do perfil
+
+- `/matching` ganha empresas agrupadas por contrato longo e freela. O perfil filtra. Processo direto fica para agora a partir de 60; processo longo fica cedo abaixo de 60, depois entre 60 e 74, e para agora a partir de 75 (D-038). Contrato curto não tem empresa neste catálogo.
+
+## 2026-09-22 — Matching segue freela e contrato do perfil
+
+- Canal de freela só aparece com freela marcado. Canal de contrato longo só aparece com contrato longo marcado. Os dois marcados juntam os dois, e o canal que serve aos dois explica os dois movimentos (D-037).
+
+## 2026-09-22 — Fase 5 aberta no quadro de canais
+
+- `/matching` lista plataformas que cruzam mercado e contrato do perfil. Cada uma traz o movimento e três passos de como prospectar (D-036). Sem Readiness, a lista não inventa ritmo. Empresas, cursos e questionário continuam fora deste corte.
+
 ## 2026-09-22 — Entrevistas no tempo de uma call real
 
 - RH passa a 30 min e 7 perguntas. Técnica oral, 45 min e 5. Fit, 45 min e 6. Banco continua fixo em inglês-US (D-035). Rodada já aberta não muda no meio.

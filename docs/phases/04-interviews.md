@@ -1,8 +1,8 @@
-# Fase 4 — Entrevistas (atual, aprofundada)
+# Fase 4 — Entrevistas (código entregue)
 
-**Status:** spec + código desta fase (17 set 2026). Conferência ao vivo ainda falta.  
+**Status:** código no git (22 set 2026). Rodadas curtas conferidas. Rodada longa, pergunta extra e o tempo somado ainda sem conferência ao vivo — o autor abriu a Fase 5 mesmo assim.  
 **Código:** permitido, limitado a RH + técnica oral (Vibe Engineering) + fit genérico, com timer, áudio e transcrição.  
-**Não fazer:** viva voz contínuo (Fase 6), matching (Fase 5), live code, copilot na call real, entrevista em português, pausar o timer.
+**Não fez:** matching (feito depois, na Fase 5), viva voz contínuo, live code, copilot na call real, entrevista em português, pausar o timer.
 
 ## Objetivo
 

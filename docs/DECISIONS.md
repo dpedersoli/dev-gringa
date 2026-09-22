@@ -297,3 +297,84 @@ Formato: número, data, status, contexto, decisão, porquê, consequências. Nã
 - **Por quê:** A validação curta já cumpriu o papel. Uma call de recrutador, uma técnica sem editor e um fit de hiring manager não cabem em cinco ou oito minutos.
 - **Consequências:** Sessão já em andamento guarda a duração e as perguntas com que começou. Pergunta extra (D-033) e o acréscimo de tempo (D-034) continuam valendo em cima deste banco. Conferência ao vivo desta rodada longa fica para depois.
 
+## D-036 — Matching começa pelos canais, e a nota marca o ritmo
+
+- **Data:** 22 set 2026
+- **Status:** vigente
+- **Contexto:** A Fase 4 está no código. A conferência ao vivo da rodada longa ainda não foi feita. O autor abriu a Fase 5 assim mesmo. O esboço pedia plataformas, o como prospectar, empresas, cursos e um questionário.
+- **Decisão:** O primeiro corte é só canais. O perfil filtra mercado e contrato; canal sem interseção fica de fora. Cada canal tem um movimento — recrutador chega, candidatura seletiva, ou triagem da rede — e três passos. Sem Readiness, a lista é só pelo perfil. Com Readiness, a nota não esconde canal: abaixo de 60 a triagem fica cedo e o quadro é secundário; de 60 a 74 o quadro é principal e a triagem é secundária; de 75 em diante os três são principais. O catálogo é fixo no repo. Empresas, cursos com URL, questionário opcional e live code × IA continuam nesta fase, sem código neste corte.
+- **Por quê:** O buraco imediato é “onde mando e de que jeito”. Tratar LinkedIn, quadro e Toptal como o mesmo gesto queima o canal. 60 é a linha em que o composto sustenta uma candidatura. 75 é a linha em que vale uma semana de teste. Esconder o canal cedo tira a explicação; marcar o ritmo deixa a pessoa ver por que ainda não é a hora.
+- **Consequências:** `/matching` não chama Anthropic e não raspa vaga. A pessoa lê a linha de país no anúncio. A conferência da rodada longa da Fase 4 segue adiada e não trava este corte. O recorte freela × contrato está em D-037.
+
+## D-037 — Freela e contrato seguem o que está marcado no perfil
+
+- **Data:** 22 set 2026
+- **Status:** vigente
+- **Contexto:** O quadro já escondia canal sem interseção de contrato. O perfil desta máquina só tinha contrato longo, então Toptal e Gun.io não apareciam. O autor quer freela quando o perfil pede freela, contrato longo quando pede contrato longo, e os dois quando os dois estão marcados.
+- **Decisão:** A lista oferece a união do que está marcado. Só freela: canais de freela, com os passos de freela. Só contrato longo ou curto: canais desse contrato, sem passos de freela. Os dois marcados: os dois conjuntos. Um canal que cobre os dois (LinkedIn, quadros, Arc) explica os dois movimentos no mesmo card. Contrato curto continua sendo um terceiro tipo, com a mesma regra.
+- **Por quê:** Tratar “ambos” como um catálogo fixo ignoraria o perfil. Esconder freela quando ele está marcado também. O passo de freela num card de emprego fixo manda a pessoa para o gesto errado.
+- **Consequências:** Mudar o perfil muda a lista na hora. Sem freela marcado, rede de freela não entra. Sem contrato longo, Turing não entra. Empresas seguem a mesma regra em D-038.
+
+## D-038 — Empresas seguem o contrato, e a barra marca o ritmo
+
+- **Data:** 22 set 2026
+- **Status:** vigente
+- **Contexto:** Os canais já respeitam freela e contrato (D-037). O resto da Fase 5 pedia empresas agrupadas por contrato curto, longo e freela, filtradas pelo perfil e pela nota.
+- **Decisão:** A empresa entra só se o contrato dela está marcado e o mercado cruza o perfil. A nota não esconde. Processo direto (Supabase, Deel, Remote, Doist, Grafana, Elastic, PostHog) fica para agora com Readiness de 60 em diante e depois abaixo disso. Processo longo (Canonical, Automattic, GitLab, Vercel, Stripe) fica cedo abaixo de 60, depois de 60 a 74, e para agora de 75 em diante. PostHog aparece nos dois quando emprego e freela estão marcados: emprego onde há como contratar, contractor onde o handbook cita a falta de EOR. Contrato curto não ganha empresa inventada; o caminho desse contrato continua nos canais.
+- **Por quê:** Nomear uma empresa de contrato curto sem vaga de prazo definido mente o catálogo. Tratar Stripe e Supabase como o mesmo gesto queima a semana. A lista de países muda; o card manda ler a vaga, não promete o Brasil.
+- **Consequências:** O catálogo é fixo no repo. Cursos, questionário e a política de live code × IA continuam nesta fase, sem código neste corte. Live code passa a poder existir por empresa, mas ainda não entra.
+
+## D-039 — Tema no header e aviso em cada ação
+
+- **Data:** 22 set 2026
+- **Status:** vigente
+- **Contexto:** O quadro de matching foi conferido. A tela clara cansava, e salvar perfil, avaliar currículo ou LinkedIn e encerrar entrevista não diziam se a ação tinha terminado.
+- **Decisão:** O header, à direita, troca tema claro e escuro. A escolha fica em `localStorage` neste navegador. Cada ação que grava ou avalia mostra um aviso: sucesso, erro ou aviso. O áudio de backup, se falhar, avisa uma vez e não cancela a entrevista. A nota continua na transcrição.
+- **Por quê:** O resultado da ação não pode depender de a pessoa adivinhar pelo redirect. Um aviso a cada pedaço de áudio cobriria a tela; uma vez basta.
+- **Consequências:** Erro de formulário continua escrito no formulário e também no aviso. Tema não entra no perfil.
+
+## D-040 — Cursos com URL, pela stack
+
+- **Data:** 22 set 2026
+- **Status:** vigente
+- **Contexto:** Canais e empresas já estão no matching. O próximo corte da fase pedia cursos com link, calibrados no perfil.
+- **Decisão:** O catálogo é fixo no repo. Curso sem tag de stack entra para todo perfil (inglês falado). Curso com tag entra quando a stack do perfil contém essas palavras. Mercado e contrato não escondem curso. A nota não esconde. O modelo não inventa URL.
+- **Por quê:** O material é estudo, não uma vaga num país. Esconder o curso de Next.js porque o contrato é longo treinaria o filtro errado. Inventar link quebra o catálogo.
+- **Consequências:** Questionário e o rótulo de live code × IA continuam nesta fase, sem código neste corte.
+
+## D-041 — Ícone no termo que não é óbvio
+
+- **Data:** 22 set 2026
+- **Status:** vigente
+- **Contexto:** Visto, IC ou gestão, domínio, EOR, Readiness e outros nomes do processo não são vocabulário comum. A pessoa não deve precisar sair da tela para saber o que significam.
+- **Decisão:** Cada termo desses tem um ícone. Passar o mouse ou focar abre o que é e onde entra nesta tela. O glossário cobre o que já aparece e o que ainda vai aparecer (visto, IC ou gestão, domínio, live code). Texto novo usa esse glossário.
+- **Por quê:** Uma frase solta no meio do card não explica o nome. O ícone fica no termo, no contexto em que ele aparece.
+- **Consequências:** Headline e About do LinkedIn continuam com a figura que já existia. O questionário, quando entrar, usa os mesmos termos visto, IC ou gestão e domínio.
+
+## D-042 — Questionário opcional no perfil
+
+- **Data:** 22 set 2026
+- **Status:** vigente
+- **Contexto:** Canais, empresas, cursos e o ícone dos termos já estão no matching. O esboço pedia um questionário para calibrar o que a pessoa busca, sem tornar o onboarding uma barreira.
+- **Decisão:** O bloco fica no perfil e começa vazio. Vazio não muda a lista. Faixa não filtra: o catálogo não tem salário; ela entra na avaliação e numa linha do matching. Visto não esconde empresa. Remoto sem visto marca Arc e Turing como cedo quando já existe Readiness; sem Readiness o ritmo continua pelo perfil e o aviso permanece. Gun.io e Toptal não recebem esse aviso. Tipo de empresa e domínio filtram por união: vazio mostra tudo; marcado, a empresa entra se cruzar. Quadro de vaga não tem tipo nem domínio e continua. Rede marcada é o que mantém Arc, Turing, Toptal e Gun.io quando algum tipo está marcado. Gestão não esconde card de IC: o catálogo é cargo de quem entrega código, e a avaliação recebe o que foi marcado. Salvar sem nada marcado omite `goals`. Perfil antigo sem `goals` continua válido.
+- **Por quê:** A nota de Readiness não pode esconder card (D-036). Uma escolha explícita de setor ou de tipo é outro recorte: a pessoa pediu para não ver o resto. Esconder por salário ou por visto mentiria, porque o catálogo não traz salário e a empresa internacional às vezes contrata remoto do Brasil.
+- **Consequências:** Contrato curto continua sem empresa no catálogo, com a frase que já existia. Lista vazia por tipo ou domínio usa outra frase.
+
+## D-043 — Rótulo de live code × IA por empresa
+
+- **Data:** 22 set 2026
+- **Status:** vigente
+- **Contexto:** D-012 tirou o editor do produto e deixou a política de IA na prova como curadoria desta fase. O card da empresa já existe.
+- **Decisão:** Cada empresa do catálogo mostra um rótulo. Proibida, permitida ou esperada só quando há página pública. Mista quando a mesma página (ou o convite público) parte o processo em duas regras. Sem página, o card diz que o convite da vaga é a regra. O rótulo não esconde empresa e não abre editor. Rede de triagem fica sem este rótulo: a regra dela não está no mesmo tipo de página.
+- **Por quê:** Marcar Stripe e PostHog com a mesma palavra treinaria a semana errada. Inventar “proibida” para Supabase, Deel, Remote, Grafana, Canonical ou Automattic também. O app não lê a vaga.
+- **Consequências:** Fontes no catálogo: PostHog handbook (projeto permite, debug só autocomplete), GitLab handbook (encoraja IA na entrevista técnica), Elastic blog de 16 jul 2026 (conversa sem ferramenta de IA), Doist handbook (pode usar e dizer), Vercel em entrevista pública da VP de engenharia (encoraja, e o convite pode marcar uma rodada sem IA), interviewing.io com engenheiros da Stripe (prova proíbe; o convite pode nomear outra rodada). Fase 6 continua fora: desafio, viva voz, auth, deploy.
+
+## D-044 — Questionário indireto pré-preenche o perfil
+
+- **Data:** 22 set 2026
+- **Status:** anotada, sem código
+- **Contexto:** A Fase 5 fechou com o questionário direto no perfil (D-042): a pessoa marca faixa, visto, tipo, trilha e domínio pelo nome do campo. O autor pediu outro caminho, ainda não construído.
+- **Decisão:** Haverá um formulário com várias perguntas indiretas. As respostas pré-definem os campos do perfil. O perfil em `/profile` continua editável depois, também quando o questionário já tiver preenchido esses campos. Refazer o questionário não trava o perfil. Isto não é a Fase 6 e não entra em código até essa tarefa ser a fase aberta.
+- **Por quê:** Quem não conhece o vocabulário (visto, IC, domínio) ainda precisa de um perfil inicial. A correção manual tem de continuar disponível, porque a inferência pode errar o que a pessoa quer.
+- **Consequências:** O bloco direto de D-042 permanece. A Fase 6 (desafio, viva voz, mobile) não absorve esta tarefa.
+
