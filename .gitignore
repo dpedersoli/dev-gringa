@@ -42,5 +42,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# local personal data (profile + evaluations)
+# local personal data (profile + evaluations + interview audio)
 /data/*.json
+/data/audio/

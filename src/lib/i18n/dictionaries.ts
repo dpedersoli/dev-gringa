@@ -7,6 +7,9 @@ const pt = {
   navProfile: "Perfil",
   navCv: "Currículo",
   navLinkedin: "LinkedIn",
+  navRh: "RH",
+  navTech: "Técnica",
+  navFit: "Fit",
   onboardingTitle: "Antes da nota, o perfil",
   onboardingLead:
     "Ferramenta pessoal. Nada de conta. Esses dados calibram as avaliações das próximas fases — currículo, LinkedIn e entrevistas em inglês-US.",
@@ -38,18 +41,30 @@ const pt = {
   scoreHintPartial:
     "Um dos dois módulos já tem nota. O Profile Score só aparece quando currículo e LinkedIn estiverem medidos.",
   scoreHintReady:
-    "Composto 57% currículo + 43% LinkedIn. Ainda não é o Readiness completo (faltam entrevistas).",
+    "Composto 57% currículo + 43% LinkedIn. Entrevistas entram no Readiness ao lado.",
+  scoreDone: "Feito",
+  scoreMissing: "Faltando",
   nextTitle: "Próximo passo",
   nextBody:
     "Envie o currículo em inglês e cole o texto do Headline, do Sobre e das experiências do LinkedIn.",
   nextCv: "Avaliar o currículo agora.",
   nextLinkedin: "Avaliar o LinkedIn agora.",
-  nextPhase4:
-    "Perfil escrito medido. Entrevistas faladas entram na Fase 4 — ainda não nesta versão.",
+  nextRh: "Fazer a entrevista de RH agora (inglês-US, timer sem pausa).",
+  nextTech: "Fazer a entrevista técnica oral agora.",
+  nextFit: "Fazer o fit cultural agora.",
+  nextPhase5:
+    "Entrevistas medidas. Matching de plataformas e empresas é Fase 5 — ainda não nesta versão.",
   modulesTitle: "Módulos",
   moduleUnmeasured: "Não medido",
   moduleLater: "Em breve",
-  phaseBadge: "Fase 3 — bloco de perfil",
+  phaseBadge: "Fase 4 — entrevistas",
+  readinessTitle: "Readiness Score",
+  readinessHint:
+    "Falta falar. O composto só aparece com CV, LinkedIn e as três entrevistas. O que não foi medido não vira zero.",
+  readinessHintPartial:
+    "Já tem fala medida. O Readiness só fecha quando RH, técnica e fit existirem junto com o perfil escrito.",
+  readinessHintReady:
+    "Composto das dimensões medidas (CV, LinkedIn, RH, técnica, fit). Inglês falado já entra nas rubricas orais.",
   cvTitle: "Currículo",
   cvLead:
     "Cole o texto ou envie um PDF com camada de texto. A nota segue o padrão internacional para pleno remoto — não é fit contra uma vaga.",
@@ -91,7 +106,53 @@ const pt = {
   errorLlm: "A Anthropic não devolveu uma avaliação. Tente de novo.",
   errorPdf:
     "Não deu para ler o PDF. Use um PDF com texto selecionável ou cole o conteúdo.",
-  errorContract: "A resposta do modelo não passou no contrato (nota + 3+3+1). Tente de novo.",
+  errorContract: "A resposta do modelo não passou no contrato (nota, acertos, melhorias, próximo passo). Tente de novo.",
+  errorMic: "Sem acesso ao microfone. Permita o microfone e tente de novo.",
+  errorStt:
+    "Este browser não transcreve fala. Use Chrome ou Edge.",
+  interviewLeadRh:
+    "Tela de RH: sete perguntas em inglês-US, trinta minutos, sem pausa.",
+  interviewLeadTech:
+    "Técnica oral de Vibe Engineering: sem editor, cinco perguntas, quarenta e cinco minutos, sem pausa. Explique em voz alta.",
+  interviewLeadFit:
+    "Fit genérico de remoto/async. Não é uma empresa famosa. Seis perguntas, quarenta e cinco minutos, sem pausa.",
+  interviewChrome: "Use Chrome ou Edge, com microfone. A pergunta é em inglês; a resposta também.",
+  interviewRules:
+    "O timer não pausa. Se zerar, você ganha 30 segundos extras e depois enviamos o que já foi falado. Encerrar congela o relógio na hora. Fechar a aba não zera o tempo. O feedback escrito sai no idioma da interface.",
+  interviewStart: "Começar",
+  interviewStartConfirmTitle: "Começar a entrevista?",
+  interviewStartConfirmBody:
+    "O timer dispara na hora e não pausa. Microfone em Chrome ou Edge. Tem certeza?",
+  interviewStop: "Parar",
+  interviewRestart: "Reiniciar",
+  interviewStopConfirmTitle: "Parar a entrevista?",
+  interviewStopConfirmBody:
+    "A sessão é cancelada sem nota. O que você já falou nesta rodada não será avaliado.",
+  interviewRestartConfirmTitle: "Reiniciar a entrevista?",
+  interviewRestartConfirmBody:
+    "A rodada atual é descartada sem nota e o timer começa do zero.",
+  interviewConfirmYes: "Sim, tenho certeza",
+  interviewConfirmNo: "Cancelar",
+  interviewGrace:
+    "Tempo extra: 30 segundos. Ao terminar, enviamos as respostas de até agora.",
+  interviewQuestion: "Pergunta",
+  interviewSpeakAgain: "Ouvir de novo",
+  interviewListening: "O microfone está ativo. Fale em inglês-US.",
+  interviewCapturing: "Captando o áudio — fale, o texto só aparece no fim.",
+  interviewReviewTitle: "Perguntas e o que você falou",
+  interviewYourAnswer: "Sua resposta (transcrita)",
+  interviewEmptyAnswer: "(nenhuma fala transcrita nesta pergunta)",
+  interviewTranscriptHint:
+    "A transcrição é feita em segundo plano. Você não corrige o texto durante a fala.",
+  interviewStackHint: "Termos do seu perfil:",
+  interviewNext: "Próxima",
+  interviewFinish: "Encerrar e avaliar",
+  interviewFollowUp: "Pergunta extra",
+  interviewFollowUpWait:
+    "Relógio parado. Se a sua resposta pedir, vem uma pergunta sobre o que você disse.",
+  interviewFollowUpAdded: "Mais tempo para esta resposta:",
+  interviewSending: "Enviando",
+  interviewSendingLeft: "faltam",
   market_us: "Estados Unidos",
   market_uk: "Reino Unido",
   market_ca: "Canadá",
@@ -118,6 +179,9 @@ const en: Dictionary = {
   navProfile: "Profile",
   navCv: "Resume",
   navLinkedin: "LinkedIn",
+  navRh: "Recruiter",
+  navTech: "Technical",
+  navFit: "Fit",
   onboardingTitle: "Profile first, score later",
   onboardingLead:
     "Personal tool. No account. This calibrates later evaluations — resume, LinkedIn, and English-US interviews.",
@@ -149,18 +213,30 @@ const en: Dictionary = {
   scoreHintPartial:
     "One module already has a score. Profile Score only appears when both resume and LinkedIn are measured.",
   scoreHintReady:
-    "57% resume + 43% LinkedIn. This is not the full Readiness score (interviews come later).",
+    "57% resume + 43% LinkedIn. Interviews feed Readiness next to this card.",
+  scoreDone: "Done",
+  scoreMissing: "Missing",
   nextTitle: "Next step",
   nextBody:
     "Submit an English resume and paste LinkedIn Headline, About, and experience.",
   nextCv: "Evaluate the resume now.",
   nextLinkedin: "Evaluate LinkedIn now.",
-  nextPhase4:
-    "Written profile is measured. Spoken interviews are Phase 4 — not in this version yet.",
+  nextRh: "Take the recruiter interview now (English-US, timer does not pause).",
+  nextTech: "Take the oral technical interview now.",
+  nextFit: "Take the culture-fit interview now.",
+  nextPhase5:
+    "Spoken interviews are measured. Platform and company matching is Phase 5 — not in this version yet.",
   modulesTitle: "Modules",
   moduleUnmeasured: "Not measured",
   moduleLater: "Later",
-  phaseBadge: "Phase 3 — profile block",
+  phaseBadge: "Phase 4 — interviews",
+  readinessTitle: "Readiness Score",
+  readinessHint:
+    "Speaking is still unmeasured. The composite appears only with resume, LinkedIn, and all three interviews. Unmeasured does not become zero.",
+  readinessHintPartial:
+    "Some speaking is scored. Readiness closes when recruiter, technical, and fit exist together with the written profile.",
+  readinessHintReady:
+    "Composite of measured dimensions (resume, LinkedIn, recruiter, technical, fit). Spoken English is already inside the oral rubrics.",
   cvTitle: "Resume",
   cvLead:
     "Paste text or upload a text-based PDF. Scored for international mid-level remote — not fit against a job post.",
@@ -203,7 +279,53 @@ const en: Dictionary = {
   errorPdf:
     "Could not read the PDF. Use a text-selectable PDF or paste the contents.",
   errorContract:
-    "Model output failed the contract (score + 3+3+1). Try again.",
+    "Model output failed the contract (score, strengths, improvements, next step). Try again.",
+  errorMic: "No microphone access. Allow the mic and try again.",
+  errorStt: "This browser cannot transcribe speech. Use Chrome or Edge.",
+  interviewLeadRh:
+    "Recruiter screen: seven questions in English-US, thirty minutes, no pause.",
+  interviewLeadTech:
+    "Oral Vibe Engineering: no editor, five questions, forty-five minutes, no pause. Think out loud.",
+  interviewLeadFit:
+    "Generic remote/async fit. Not a named company. Six questions, forty-five minutes, no pause.",
+  interviewChrome:
+    "Use Chrome or Edge, with a microphone. The question is in English; so is the answer.",
+  interviewRules:
+    "The timer does not pause. When it hits zero you get 30 extra seconds, then we send whatever you already said. Finish freezes the clock immediately. Closing the tab does not reset the clock. Written feedback uses the UI language.",
+  interviewStart: "Start",
+  interviewStartConfirmTitle: "Start the interview?",
+  interviewStartConfirmBody:
+    "The timer starts immediately and does not pause. Microphone in Chrome or Edge. Are you sure?",
+  interviewStop: "Stop",
+  interviewRestart: "Restart",
+  interviewStopConfirmTitle: "Stop the interview?",
+  interviewStopConfirmBody:
+    "This session is cancelled with no score. What you already said in this round will not be evaluated.",
+  interviewRestartConfirmTitle: "Restart the interview?",
+  interviewRestartConfirmBody:
+    "The current round is discarded with no score and the timer starts from zero.",
+  interviewConfirmYes: "Yes, I am sure",
+  interviewConfirmNo: "Cancel",
+  interviewGrace:
+    "Extra time: 30 seconds. When it ends, we send the answers so far.",
+  interviewQuestion: "Question",
+  interviewSpeakAgain: "Play again",
+  interviewListening: "The microphone is on. Speak in English-US.",
+  interviewCapturing: "Capturing audio — the text appears only at the end.",
+  interviewReviewTitle: "Questions and what you said",
+  interviewYourAnswer: "Your answer (transcript)",
+  interviewEmptyAnswer: "(no spoken answer captured for this question)",
+  interviewTranscriptHint:
+    "Transcription runs in the background. You do not edit text while speaking.",
+  interviewStackHint: "Terms from your profile:",
+  interviewNext: "Next",
+  interviewFinish: "Finish and score",
+  interviewFollowUp: "Follow-up",
+  interviewFollowUpWait:
+    "Clock paused. If your answer needs it, one question about what you just said comes next.",
+  interviewFollowUpAdded: "More time for this answer:",
+  interviewSending: "Sending",
+  interviewSendingLeft: "left",
   market_us: "United States",
   market_uk: "United Kingdom",
   market_ca: "Canada",

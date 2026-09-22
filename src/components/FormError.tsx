@@ -22,6 +22,10 @@ export function FormError({
             ? dict.errorPdf
             : code === "contract"
               ? dict.errorContract
+              : code === "mic"
+                ? dict.errorMic
+                : code === "stt"
+                  ? dict.errorStt
               : dict.errorGeneric;
   return (
     <p className="border border-[var(--accent)] bg-[var(--chip)] px-3 py-2 text-sm">

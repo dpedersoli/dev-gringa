@@ -43,6 +43,24 @@ export function AppShell({
                 {dict.navLinkedin}
               </Link>
               <Link
+                href="/interview/rh"
+                className="rounded-sm px-3 py-1.5 text-[var(--foreground)] hover:bg-[var(--chip)]"
+              >
+                {dict.navRh}
+              </Link>
+              <Link
+                href="/interview/tech_vibe"
+                className="rounded-sm px-3 py-1.5 text-[var(--foreground)] hover:bg-[var(--chip)]"
+              >
+                {dict.navTech}
+              </Link>
+              <Link
+                href="/interview/fit"
+                className="rounded-sm px-3 py-1.5 text-[var(--foreground)] hover:bg-[var(--chip)]"
+              >
+                {dict.navFit}
+              </Link>
+              <Link
                 href="/profile"
                 className="rounded-sm px-3 py-1.5 text-[var(--foreground)] hover:bg-[var(--chip)]"
               >
