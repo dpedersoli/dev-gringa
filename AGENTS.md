@@ -12,7 +12,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 Antes de qualquer trabalho: `docs/STATUS.md`, `docs/DECISIONS.md`, `docs/phases/` da fase atual.
 
-Fase 2 = perfil local + dashboard + contrato de avaliação.
-Fase 3 = CV + LinkedIn via Anthropic (`assertEvaluation` antes de persistir). Sem entrevistas, áudio, auth.
+Fase 3 = CV + LinkedIn via Anthropic (`assertEvaluation` antes de persistir). Encerrada.
+Fase 4 = entrevistas faladas (timer, inglês-US, transcrição, `assertEvaluation`, pergunta extra D-033). Sem matching, viva voz contínuo, auth.
 
 Persistência: `data/*.json` via `src/lib/storage`. Avaliação: `assertEvaluation` em `src/lib/domain/evaluation.ts`. Segredos em `.env` (não commitar). Nomes das variáveis em `.env.example`.

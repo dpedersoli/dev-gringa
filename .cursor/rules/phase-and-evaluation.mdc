@@ -7,8 +7,8 @@ alwaysApply: true
 
 Fase atual = número em `docs/STATUS.md`. Código e spec profunda só dela.
 
-- Fase 3: CV + LinkedIn via Anthropic. Sem entrevistas, áudio, matching, auth.
-- Toda avaliação deve passar em `assertEvaluation` (`src/lib/domain/evaluation.ts`): score 0–100, 3 strengths, 3 improvements, 1 nextStep.
+- Fase 4: entrevistas RH 30 min/7, técnica oral 45 min/5, fit 45 min/6. Inglês-US no áudio e no enunciado; timer sem pausa (`startedAt`). Readiness só com CV+LinkedIn+as três orais. Sem matching, viva voz contínuo, auth. Pergunta extra (D-033): no máximo uma por resposta do banco, sem encadear e sem nota no meio. Sem tempo oficial restante, não abre pergunta nova. Cada extra nova soma ao tempo oficial a estimativa da resposta (D-034, 30–120 s; sem número, 60 s).
+- Toda avaliação deve passar em `assertEvaluation` (`src/lib/domain/evaluation.ts`): score 0–100, acertos e melhorias sem cota fixa (mínimo 1 de cada), 1 nextStep.
 - Dimensão não medida nunca aparece como nota 0. Profile Score só com CV e LinkedIn juntos.
 - Entrevista (quando existir): inglês-US no áudio e no enunciado; timer sem pausa.
 - Ferramenta pessoal, um perfil local, JSON em `data/`. Não deployar na Vercel sem ADR de storage.

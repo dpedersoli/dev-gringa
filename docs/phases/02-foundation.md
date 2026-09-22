@@ -1,8 +1,8 @@
-# Fase 2 — Fundação (atual, aprofundada)
+# Fase 2 — Fundação (encerrada)
 
 **Status:** feita em 16 set 2026 (spec + código + conferência no browser).  
-**Código:** limitado ao que este documento descreve.  
-**Não fazer a partir daqui:** Fase 3 só depois de aprofundar `03-profile-block.md`.
+**Código:** limitado ao que este documento descreve. Não reabrir.  
+**Depois disto:** Fase 3 e 4 foram aprofundadas nos arquivos delas. Este documento é arquivo da fundação.
 
 ## Objetivo
 
@@ -98,7 +98,7 @@ Um único perfil. Sem `id` de usuário.
 
 `evaluations.json` = `{ "items": Evaluation[] }`. Fase 2 nunca dá `push` nisso, só lê.
 
-Regras de escrita (para a Fase 3 obedecer): recusar avaliação com `strengths.length !== 3` ou `improvements.length !== 3` ou score fora de 0–100. A função `assertEvaluation` já existe agora.
+Regras de escrita da época: recusar avaliação com `strengths.length !== 3` ou `improvements.length !== 3`. **D-031** tirou essa cota; o contrato vigente não é mais 3+3.
 
 ## Stack técnica (só o necessário)
 
@@ -143,7 +143,7 @@ Tudo isto verdadeiro:
 7. Não há upload de CV, chamada de LLM, nem permissão de microfone.
 8. `docs/STATUS.md` reflete a realidade.
 
-Quando passar: marcar Fase 2 como **feita** no STATUS e só então aprofundar a Fase 3.
+**Atendido** em 16 set 2026. STATUS marcou a fase como feita; a Fase 3 foi aprofundada depois. Microfone e LLM nas fases seguintes não reabrem este critério.
 
 ## Fora desta fase (lista de recusa)
 

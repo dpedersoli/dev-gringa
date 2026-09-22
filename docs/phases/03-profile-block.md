@@ -1,8 +1,8 @@
-# Fase 3 — Bloco de perfil (atual, aprofundada)
+# Fase 3 — Bloco de perfil (encerrada)
 
-**Status:** conferida ao vivo (17 set 2026). CV + LinkedIn + Profile Score. Código limitado a este bloco.  
-**Código:** permitido, limitado a CV + LinkedIn + Profile Score.  
-**Não fazer:** entrevistas, áudio, matching, live code, OAuth LinkedIn, reescrever o PDF por você.
+**Status:** conferida ao vivo e encerrada (17 set 2026). CV + LinkedIn + Profile Score.  
+**Código:** feito. Não reabrir a menos que a rubrica escrita mude (isso exigiria ADR).  
+**Não fez (de propósito):** entrevistas, áudio, matching, live code, OAuth LinkedIn, reescrever o PDF por você.
 
 ## Objetivo
 
@@ -10,7 +10,7 @@ A pessoa sai com a **primeira nota útil** do produto:
 
 1. Avalia o currículo (texto colado e/ou PDF).
 2. Avalia o LinkedIn (Headline, About, Experiências colados — sem OAuth).
-3. Vê, para cada um: nota 0–100, 3 acertos com evidência, 3 melhorias com exemplo reescrito, 1 próximo passo.
+3. Vê, para cada um: nota 0–100, acertos com evidência, melhorias com exemplo reescrito, 1 próximo passo. Na época da fase a cota era 3+3; D-031 tirou o teto.
 4. Quando os dois existem, o dashboard mostra o **Profile Score** (CV 57 + LinkedIn 43). Um módulo sozinho nunca puxa o composto para baixo como se o outro fosse zero.
 
 ## Por quê
@@ -43,7 +43,7 @@ D-006: ATS e busca passiva acontecem antes da call. Sem esta nota, o restante do
 ### Painel
 
 - Profile Score: número só com CV **e** LinkedIn medidos. Senão: “Não medido” ou “Parcial” (um dos dois).
-- Próximo passo: o módulo que falta; se os dois existem, o texto aponta para a Fase 4 (ainda não implementada).
+- Próximo passo: o módulo que falta; se os dois existiam, o texto apontava para a Fase 4 (então futura; hoje é a fase atual).
 
 ## Rubrica — CV (100)
 
@@ -73,6 +73,8 @@ O CV é julgado no **padrão internacional para pleno remoto**, não contra uma 
 Cada avaliação passa em `assertEvaluation` **antes** de gravar. Se o modelo devolver JSON inválido, tentamos uma correção curta; se falhar, não gravamos nota falsa — erro visível.
 
 `claim`/`evidence`/`example`/`nextStep` saem no `uiLocale`. A evidência cita trecho real do texto enviado.
+
+As melhorias, quando o texto justificar, cobrem reescrever o que existe, **adicionar** o que falta e **remover** o que prejudica. Sem cota e sem campo extra no JSON (D-031).
 
 ## Stack desta fase
 
@@ -124,6 +126,8 @@ Profile Score (só UI, não é um `module`):
 6. PDF de texto extraível funciona; PDF-imagem falha com pedido para colar.
 7. Docs (STATUS, CHANGELOG, DECISIONS, este arquivo) atualizados.
 8. Nenhuma rota de entrevista.
+
+**Atendido** em 17 set 2026 (commit `739eb1a`). O item 8 era verdadeiro no fechamento; entrevistas passaram a existir na Fase 4.
 
 ## Riscos
 

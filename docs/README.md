@@ -7,7 +7,7 @@ Esta pasta é a **memória do projeto**. Conversas no Cursor, canvases temporár
 1. [STATUS.md](STATUS.md) — fase atual, o que está acontecendo, o que falta.
 2. [DECISIONS.md](DECISIONS.md) — o que foi decidido e **por quê**.
 3. [CHANGELOG.md](CHANGELOG.md) — o que já aconteceu, em ordem.
-4. A fase atual em `phases/` (hoje: [02-foundation.md](phases/02-foundation.md)).
+4. A fase atual em `phases/` (hoje: [04-interviews.md](phases/04-interviews.md)).
 5. Produto em `product/` se a dúvida for de visão, não de implementação.
 
 ## Mapa
@@ -24,9 +24,9 @@ Esta pasta é a **memória do projeto**. Conversas no Cursor, canvases temporár
 | [product/score.md](product/score.md) | Filosofia do Readiness / Profile Score |
 | [product/modules.md](product/modules.md) | Catálogo (esboço das fases futuras, detalhe só da atual) |
 | [phases/01-discovery.md](phases/01-discovery.md) | Arquivo da Fase 1 (encerrada) |
-| [phases/02-foundation.md](phases/02-foundation.md) | Aprofundamento da Fase 2 (atual) |
-| [phases/03-profile-block.md](phases/03-profile-block.md) | Esboço — não implementar |
-| [phases/04-interviews.md](phases/04-interviews.md) | Esboço — não implementar |
+| [phases/02-foundation.md](phases/02-foundation.md) | Arquivo da Fase 2 (encerrada) |
+| [phases/03-profile-block.md](phases/03-profile-block.md) | Arquivo da Fase 3 (encerrada) |
+| [phases/04-interviews.md](phases/04-interviews.md) | Aprofundamento da Fase 4 (atual) |
 | [phases/05-matching.md](phases/05-matching.md) | Esboço — não implementar |
 | [phases/06-later.md](phases/06-later.md) | Esboço — não implementar |
 

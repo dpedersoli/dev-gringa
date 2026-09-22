@@ -2,6 +2,68 @@
 
 Eventos do projeto, do mais recente para o mais antigo. Fatos, não planos.
 
+## 2026-09-22 — Entrevistas no tempo de uma call real
+
+- RH passa a 30 min e 7 perguntas. Técnica oral, 45 min e 5. Fit, 45 min e 6. Banco continua fixo em inglês-US (D-035). Rodada já aberta não muda no meio.
+
+## 2026-09-22 — Pergunta extra soma tempo ao relógio
+
+- Cada pergunta extra nova alonga o tempo oficial com os segundos que o modelo espera para a resposta (30–120). Sem número, soma 60 s. D-034. Conferência ao vivo fica para depois.
+
+## 2026-09-21 — Pergunta extra depois da resposta do banco
+
+- D-033 no código: no máximo uma pergunta, em inglês-US, só se a resposta pedir. Sem encadear. Relógio parado enquanto ela é decidida e lida. Sem chave, segue o banco. Nota só no encerramento.
+
+## 2026-09-21 — Painel mostra feito e faltando em cada score
+
+- Profile Score, Readiness e a lista de módulos marcam cada parte como feita (com a nota) ou faltando. Desafio continua “em breve”.
+
+## 2026-09-21 — Rodadas curtas das três entrevistas feitas
+
+- RH, técnica e fit geraram nota no contrato. O painel mostra Readiness. A Fase 4 segue aberta para a pergunta extra (D-033).
+
+## 2026-09-21 — Barra de 0 a 100% no envio final
+
+- No clique de Encerrar e avaliar, RH, técnica e fit mostram o quanto da requisição já foi e o quanto falta. A barra some nas trocas de pergunta.
+
+## 2026-09-21 — Pergunta extra fica para depois da validação curta
+
+- D-033: depois de cada resposta do banco, o modelo poderá fazer no máximo uma pergunta, se couber. Sem código agora. Ainda na Fase 4, antes da Fase 5. Não é a conversa contínua da Fase 6.
+
+## 2026-09-21 — Áudio da resposta em pedaços
+
+- A gravação já sai em Opus (~32 kbps). Cada segundo é gravado no arquivo local, então o tamanho da resposta não depende de um único envio.
+- A nota continua na transcrição. Falha no arquivo de backup não invalida a entrevista.
+
+## 2026-09-21 — Troca de pergunta sem esperar áudio nem nota
+
+- Entre perguntas a tela não espera upload nem Anthropic. A avaliação continua só no encerramento.
+- O 500 `Body exceeded 1 MB limit` era o áudio de backup, não a nota. Limite da Server Action sobe para 12mb.
+
+## 2026-09-21 — Avaliação sem cota de 3+3
+
+- `assertEvaluation` aceita quantos acertos e melhorias o artefato pedir (mínimo 1 de cada). D-031 substitui a cota de D-010/D-030.
+- Rodadas de entrevista continuam 5/8/5 min e 3 perguntas, para validar rápido. Alvo realista anotado na spec da Fase 4: RH 30 min/7, técnica oral 45 min/5, fit 45 min/6.
+
+## 2026-09-18 — Entrevista: sem texto ao vivo
+
+- Durante a fala: barras de frequência; transcrição escondida (D-029).
+- Depois de encerrar: perguntas + respostas transcritas, então a nota.
+- Melhorias 3+3+1 passam a cobrir corrigir / adicionar / remover quando o artefato justificar (D-030), em CV, LinkedIn e entrevistas.
+- Matching, cursos e questionário de busca ficam no esboço da Fase 5.
+
+## 2026-09-17 — Fase 4: correções depois do teste de RH
+
+- Transcrição editável; STT reinicia no silêncio; reparo leve de pontuação/termos da stack no Anthropic, sem inventar fala (D-028).
+- Confirmar **Começar**; **Parar** e **Reiniciar** com confirmação; abortar não gera nota (D-027).
+- **Encerrar** congela o timer na hora. Ao zerar o tempo oficial, 30s extras e envio do que já foi dito (D-026).
+
+## 2026-09-17 — Fase 4 iniciada: entrevistas faladas
+
+- Spec profunda em `docs/phases/04-interviews.md`. Fase 3 arquivada como encerrada.
+- Rotas `/interview/rh`, `/interview/tech_vibe`, `/interview/fit`: timer sem pausa, pergunta em inglês-US, gravação + transcrição no browser, nota via Anthropic + `assertEvaluation`. Refresh retoma a sessão `running` pelo `startedAt`.
+- D-021 a D-025: turnos (não viva voz), TTS/STT local, banco fixo, fit genérico, Readiness renormalizado em 80.
+
 ## 2026-09-17 — Fase 3 conferida ao vivo
 
 - CV (PDF), LinkedIn colado e Profile Score numérico no painel, neste computador.

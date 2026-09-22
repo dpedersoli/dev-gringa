@@ -7,11 +7,11 @@ Detalhe de implementação só existe para a fase atual. O resto é esboço.
 | Onboarding / perfil | Não. Calibra o resto. | 2 | feita |
 | Dashboard | Exibe notas; não gera | 2 | feita |
 | Contrato de avaliação (tipos + store vazia) | Infra | 2 | feita |
-| Análise curricular | Sim | 3 | código pronto; nota depende da API |
-| Análise LinkedIn | Sim | 3 | código pronto; nota depende da API |
-| Entrevista RH | Sim | 4 | esboço |
-| Entrevista técnica vibe | Sim | 4 | esboço |
-| Fit cultural | Sim | 4 | esboço |
+| Análise curricular | Sim | 3 | feita |
+| Análise LinkedIn | Sim | 3 | feita |
+| Entrevista RH | Sim | 4 | atual |
+| Entrevista técnica vibe | Sim | 4 | atual |
+| Fit cultural | Sim | 4 | atual |
 | Política live code × IA | Conteúdo / rótulo | 5 | esboço |
 | Indicação de plataformas | Fit vs perfil | 5 | esboço |
 | Indicação de empresas (curto/longo/freela) | Fit vs score | 5 | esboço |
