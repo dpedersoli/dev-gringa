@@ -1,5 +1,6 @@
 import { notFound, redirect } from "next/navigation";
 import { AppShell } from "@/components/AppShell";
+import { Copy } from "@/components/Glossary";
 import { EvaluationResult } from "@/components/EvaluationResult";
 import { InterviewRunner } from "@/components/InterviewRunner";
 import { latestByModule } from "@/lib/domain/evaluation";
@@ -46,14 +47,19 @@ export default async function InterviewPage({
         {dict.phaseBadge}
       </p>
       <h1 className="mt-2 font-[family-name:var(--font-serif)] text-4xl tracking-tight">
-        {title}
+        <Copy dict={dict} text={title} />
       </h1>
       <p className="mt-3 max-w-2xl text-[var(--muted)] leading-7">
-        {module === "rh"
-          ? dict.interviewLeadRh
-          : module === "tech_vibe"
-            ? dict.interviewLeadTech
-            : dict.interviewLeadFit}
+        <Copy
+          dict={dict}
+          text={
+            module === "rh"
+              ? dict.interviewLeadRh
+              : module === "tech_vibe"
+                ? dict.interviewLeadTech
+                : dict.interviewLeadFit
+          }
+        />
       </p>
       {lastSubmitted ? (
         <div className="mt-8">

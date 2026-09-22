@@ -12,6 +12,8 @@ import {
 import { AudioLevelBars } from "@/components/AudioLevelBars";
 import { ConfirmDialog } from "@/components/ConfirmDialog";
 import { FormError } from "@/components/FormError";
+import { pushToast } from "@/components/ToastHost";
+import { feedbackHref } from "@/lib/feedback";
 import {
   INTERVIEW_GRACE_SEC,
   interviewHardEndMs,
@@ -139,6 +141,7 @@ export function InterviewRunner({
   const recognitionRef = useRef<SpeechRec | null>(null);
   const recorderRef = useRef<MediaRecorder | null>(null);
   const audioChainRef = useRef<Promise<void>>(Promise.resolve());
+  const audioWarnedRef = useRef(false);
   const streamRef = useRef<MediaStream | null>(null);
   const finalRef = useRef("");
   const submittingRef = useRef(false);
@@ -290,7 +293,10 @@ export function InterviewRunner({
       try {
         await saveInterviewAudio(sessionId, questionId, body);
       } catch {
-        /* backup only */
+        if (!audioWarnedRef.current) {
+          audioWarnedRef.current = true;
+          pushToast("warn", dict.toastAudio);
+        }
       }
     });
   }
@@ -350,6 +356,7 @@ export function InterviewRunner({
     const Ctor = getSpeechRecognition();
     if (!Ctor) {
       setLocalError("stt");
+      pushToast("error", dict.errorStt);
       return;
     }
     if (reset) {
@@ -474,6 +481,7 @@ export function InterviewRunner({
   async function armMic(): Promise<boolean> {
     if (!getSpeechRecognition()) {
       setLocalError("stt");
+      pushToast("error", dict.errorStt);
       return false;
     }
     try {
@@ -484,6 +492,7 @@ export function InterviewRunner({
       return true;
     } catch {
       setLocalError("mic");
+      pushToast("error", dict.errorMic);
       return false;
     }
   }
@@ -504,11 +513,13 @@ export function InterviewRunner({
         applySession(session);
         const current = session.questions[resumeIndex(session)];
         if (current) poseQuestion(current.text);
+        pushToast("success", dict.toastInterviewStarted);
         setBusy(false);
       } catch {
         teardown();
         setLiveStream(null);
         setBusy(false);
+        pushToast("error", dict.errorGeneric);
       }
     });
   }
@@ -600,6 +611,7 @@ export function InterviewRunner({
         follow = await maybeInterviewFollowUp(session, current.id, spoken);
       } catch {
         follow = null;
+        pushToast("warn", dict.toastFollowUp);
         try {
           await saveInterviewProgress(session, answersPayload);
         } catch {
@@ -698,7 +710,7 @@ export function InterviewRunner({
           body: JSON.stringify({ sessionId: id, answers: payload }),
         });
         if (!response.ok || !response.body) {
-          window.location.assign(`/interview/${module}?error=llm`);
+          window.location.assign(feedbackHref(`/interview/${module}`, "error", "llm"));
           return;
         }
         const reader = response.body.getReader();
@@ -726,18 +738,18 @@ export function InterviewRunner({
           return;
         }
         if (errorCode === "session") {
-          window.location.assign("/");
+          window.location.assign(feedbackHref("/", "error", "session"));
           return;
         }
         if (errorCode) {
-          window.location.assign(`/interview/${module}?error=${errorCode}`);
+          window.location.assign(feedbackHref(`/interview/${module}`, "error", errorCode));
           return;
         }
         setSubmitPct(100);
         await new Promise((resolve) => window.setTimeout(resolve, 400));
-        window.location.assign(`/interview/${module}`);
+        window.location.assign(feedbackHref(`/interview/${module}`, "ok", "interview"));
       } catch {
-        window.location.assign(`/interview/${module}?error=llm`);
+        window.location.assign(feedbackHref(`/interview/${module}`, "error", "llm"));
       }
     })();
   }
@@ -751,8 +763,9 @@ export function InterviewRunner({
     if (id) {
       try {
         await abandonInterview(id);
+        pushToast("success", dict.toastInterviewStopped);
       } catch {
-        /* local reset anyway */
+        pushToast("warn", dict.toastInterviewStopWarn);
       }
     }
     resetLocal();
@@ -768,7 +781,7 @@ export function InterviewRunner({
       try {
         await abandonInterview(id);
       } catch {
-        /* still restart */
+        pushToast("warn", dict.toastInterviewStopWarn);
       }
     }
     resetLocal();

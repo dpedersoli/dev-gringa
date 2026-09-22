@@ -37,8 +37,14 @@ export default async function RootLayout({
     <html
       lang={locale}
       className={`${geistSans.variable} ${geistMono.variable} ${newsreader.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <body className="min-h-full" suppressHydrationWarning>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{if(localStorage.getItem("dev-gringa-theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}})()`,
+          }}
+        />
         {children}
       </body>
     </html>

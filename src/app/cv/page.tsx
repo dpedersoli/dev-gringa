@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
 import { AppShell } from "@/components/AppShell";
+import { Copy } from "@/components/Glossary";
 import { CvForm } from "@/components/CvForm";
 import { EvaluationResult } from "@/components/EvaluationResult";
 import { latestByModule } from "@/lib/domain/evaluation";
@@ -24,7 +25,9 @@ export default async function CvPage({
       <h1 className="font-[family-name:var(--font-serif)] text-4xl tracking-tight">
         {dict.cvTitle}
       </h1>
-      <p className="mt-3 max-w-2xl text-[var(--muted)] leading-7">{dict.cvLead}</p>
+      <p className="mt-3 max-w-2xl text-[var(--muted)] leading-7">
+        <Copy dict={dict} text={dict.cvLead} />
+      </p>
       {latest.cv ? (
         <div className="mt-8">
           <EvaluationResult dict={dict} evaluation={latest.cv} />

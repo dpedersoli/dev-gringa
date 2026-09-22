@@ -1,13 +1,25 @@
 import {
+  COMPANY_KINDS,
   CONTRACTS,
+  DOMAINS,
   LOCALES,
   MARKETS,
+  SALARY_BANDS,
+  TRACKS,
+  VISA_STANCES,
+  type CompanyKind,
   type ContractType,
+  type DomainId,
   type MarketId,
   type Profile,
+  type SalaryBand,
+  type Track,
+  type VisaStance,
 } from "@/lib/domain/profile";
 import { saveProfile } from "@/app/actions/profile";
+import { Copy, TipIcon } from "@/components/Glossary";
 import type { Dictionary } from "@/lib/i18n/dictionaries";
+import type { TipId } from "@/lib/i18n/tips";
 import { SubmitButton } from "@/components/SubmitButton";
 
 const fieldClass =
@@ -19,6 +31,53 @@ function marketLabel(dict: Dictionary, id: MarketId) {
 
 function contractLabel(dict: Dictionary, id: ContractType) {
   return dict[`contract_${id}`];
+}
+
+function salaryLabel(dict: Dictionary, id: SalaryBand) {
+  if (id === "unsure") return dict.goalSalaryUnsure;
+  if (id === "upto_60") return dict.goalSalary60;
+  if (id === "60_90") return dict.goalSalary90;
+  return dict.goalSalaryPlus;
+}
+
+function visaLabel(dict: Dictionary, id: VisaStance) {
+  if (id === "remote_br") return dict.goalVisaRemote;
+  if (id === "relocate") return dict.goalVisaRelocate;
+  return dict.goalVisaAuth;
+}
+
+function trackLabel(dict: Dictionary, id: Track) {
+  if (id === "ic") return dict.goalTrackIc;
+  if (id === "management") return dict.goalTrackManagement;
+  return dict.goalTrackBoth;
+}
+
+function kindLabel(dict: Dictionary, id: CompanyKind) {
+  if (id === "product") return dict.goalKindProduct;
+  if (id === "startup") return dict.goalKindStartup;
+  return dict.goalKindNetwork;
+}
+
+function kindTip(id: CompanyKind): TipId {
+  if (id === "product") return "product";
+  if (id === "startup") return "startup";
+  return "network";
+}
+
+function domainLabel(dict: Dictionary, id: DomainId) {
+  if (id === "devtools") return dict.goalDomainDevtools;
+  if (id === "fintech") return dict.goalDomainFintech;
+  if (id === "productivity") return dict.goalDomainProductivity;
+  if (id === "infra") return dict.goalDomainInfra;
+  return dict.goalDomainPublishing;
+}
+
+function domainTip(id: DomainId): TipId {
+  if (id === "devtools") return "devtools";
+  if (id === "fintech") return "fintech";
+  if (id === "productivity") return "productivity";
+  if (id === "infra") return "infra";
+  return "publishing";
 }
 
 export function ProfileForm({
@@ -74,7 +133,9 @@ export function ProfileForm({
       <div className="text-sm">
         <p className="text-[var(--muted)]">{dict.seniority}</p>
         <p className="mt-1 font-medium">{dict.seniorityValue}</p>
-        <p className="mt-1 text-[var(--muted)]">{dict.seniorityHint}</p>
+        <p className="mt-1 text-[var(--muted)]">
+          <Copy dict={dict} text={dict.seniorityHint} />
+        </p>
       </div>
 
       <label className="block text-sm">
@@ -108,19 +169,137 @@ export function ProfileForm({
 
       <fieldset className="text-sm">
         <legend className="text-[var(--muted)]">{dict.contracts}</legend>
+        <p className="mt-1 text-sm leading-6 text-[var(--muted)]">{dict.contractsHint}</p>
         <div className="mt-2 flex flex-col gap-2">
           {CONTRACTS.map((id) => (
-            <label key={id} className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                name="contractTypes"
-                value={id}
-                defaultChecked={selectedContracts.has(id)}
+            <span key={id} className="inline-flex items-center">
+              <label className="inline-flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  name="contractTypes"
+                  value={id}
+                  defaultChecked={selectedContracts.has(id)}
+                />
+                {contractLabel(dict, id)}
+              </label>
+              <TipIcon
+                dict={dict}
+                id={
+                  (id === "short"
+                    ? "contractShort"
+                    : id === "long"
+                      ? "contractLong"
+                      : "freelance") satisfies TipId
+                }
               />
-              {contractLabel(dict, id)}
-            </label>
+            </span>
           ))}
         </div>
+      </fieldset>
+
+      <fieldset className="text-sm">
+        <legend className="text-[var(--muted)]">{dict.goalTitle}</legend>
+        <p className="mt-1 leading-6 text-[var(--muted)]">{dict.goalHint}</p>
+
+        <div className="mt-4">
+          <span className="inline-flex items-center text-[var(--muted)]">
+            {dict.goalSalary}
+            <TipIcon dict={dict} id="salary" />
+          </span>
+          <select
+            name="salaryBand"
+            defaultValue={profile?.goals?.salaryBand ?? ""}
+            className={fieldClass}
+          >
+            <option value="">{dict.goalUnset}</option>
+            {SALARY_BANDS.map((id) => (
+              <option key={id} value={id}>
+                {salaryLabel(dict, id)}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="mt-4">
+          <span className="inline-flex items-center text-[var(--muted)]">
+            {dict.goalVisa}
+            <TipIcon dict={dict} id="visto" />
+          </span>
+          <select
+            name="visa"
+            defaultValue={profile?.goals?.visa ?? ""}
+            className={fieldClass}
+          >
+            <option value="">{dict.goalUnset}</option>
+            {VISA_STANCES.map((id) => (
+              <option key={id} value={id}>
+                {visaLabel(dict, id)}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="mt-4">
+          <span className="inline-flex items-center text-[var(--muted)]">
+            {dict.goalTrack}
+            <TipIcon dict={dict} id="ic" />
+          </span>
+          <select
+            name="track"
+            defaultValue={profile?.goals?.track ?? ""}
+            className={fieldClass}
+          >
+            <option value="">{dict.goalUnset}</option>
+            {TRACKS.map((id) => (
+              <option key={id} value={id}>
+                {trackLabel(dict, id)}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <fieldset className="mt-4">
+          <legend className="text-[var(--muted)]">{dict.goalKind}</legend>
+          <div className="mt-2 flex flex-col gap-2">
+            {COMPANY_KINDS.map((id) => (
+              <span key={id} className="inline-flex items-center">
+                <label className="inline-flex items-center gap-2">
+                  <input
+                    type="checkbox"
+                    name="companyKinds"
+                    value={id}
+                    defaultChecked={profile?.goals?.companyKinds?.includes(id) ?? false}
+                  />
+                  {kindLabel(dict, id)}
+                </label>
+                <TipIcon dict={dict} id={kindTip(id)} />
+              </span>
+            ))}
+          </div>
+        </fieldset>
+
+        <fieldset className="mt-4">
+          <legend className="inline-flex items-center text-[var(--muted)]">
+            {dict.goalDomain}
+            <TipIcon dict={dict} id="domain" />
+          </legend>
+          <div className="mt-2 flex flex-col gap-2">
+            {DOMAINS.map((id) => (
+              <span key={id} className="inline-flex items-center">
+                <label className="inline-flex items-center gap-2">
+                  <input
+                    type="checkbox"
+                    name="domains"
+                    value={id}
+                    defaultChecked={profile?.goals?.domains?.includes(id) ?? false}
+                  />
+                  {domainLabel(dict, id)}
+                </label>
+                <TipIcon dict={dict} id={domainTip(id)} />
+              </span>
+            ))}
+          </div>
+        </fieldset>
       </fieldset>
 
       <label className="block text-sm">

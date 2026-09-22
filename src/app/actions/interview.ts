@@ -11,6 +11,7 @@ import {
   isInterviewModule,
   type InterviewModuleId,
 } from "@/lib/interview/banks";
+import { feedbackHref } from "@/lib/feedback";
 import { completeInterviewFinish, InterviewFinishError } from "@/lib/interview/finish";
 import {
   readInterviewSession,
@@ -22,7 +23,7 @@ import {
 } from "@/lib/storage/store";
 
 function fail(module: InterviewModuleId, code: string): never {
-  redirect(`/interview/${module}?error=${code}`);
+  redirect(feedbackHref(`/interview/${module}`, "error", code));
 }
 
 export async function startInterview(module: InterviewModuleId) {
@@ -159,7 +160,7 @@ export async function finishInterview(
 ) {
   try {
     const module = await completeInterviewFinish(sessionId, answers, () => {});
-    redirect(`/interview/${module}`);
+    redirect(feedbackHref(`/interview/${module}`, "ok", "interview"));
   } catch (error) {
     if (error instanceof InterviewFinishError) {
       if (error.code === "onboarding") redirect("/onboarding");

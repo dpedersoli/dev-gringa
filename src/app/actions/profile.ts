@@ -3,14 +3,26 @@
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import {
+  COMPANY_KINDS,
   CONTRACTS,
+  DOMAINS,
   LOCALES,
   MARKETS,
+  SALARY_BANDS,
+  TRACKS,
+  VISA_STANCES,
+  type CompanyKind,
   type ContractType,
+  type DomainId,
+  type Goals,
   type Locale,
   type MarketId,
   type Profile,
+  type SalaryBand,
+  type Track,
+  type VisaStance,
 } from "@/lib/domain/profile";
+import { feedbackHref } from "@/lib/feedback";
 import { writeProfile } from "@/lib/storage/store";
 
 function asLocale(value: FormDataEntryValue | null): Locale {
@@ -29,6 +41,14 @@ function parseList<T extends string>(
     .filter((item): item is T => (allowed as readonly string[]).includes(item));
 }
 
+function asEnum<T extends string>(
+  value: FormDataEntryValue | null,
+  allowed: readonly T[],
+): T | undefined {
+  const raw = String(value ?? "");
+  return allowed.includes(raw as T) ? (raw as T) : undefined;
+}
+
 export async function saveProfile(formData: FormData) {
   const displayName = String(formData.get("displayName") ?? "").trim();
   const yearsRaw = Number(formData.get("yearsExperience"));
@@ -43,9 +63,21 @@ export async function saveProfile(formData: FormData) {
     CONTRACTS,
   );
   const from = String(formData.get("from") ?? "onboarding");
+  const salaryBand = asEnum<SalaryBand>(formData.get("salaryBand"), SALARY_BANDS);
+  const visa = asEnum<VisaStance>(formData.get("visa"), VISA_STANCES);
+  const track = asEnum<Track>(formData.get("track"), TRACKS);
+  const companyKinds = parseList<CompanyKind>(formData, "companyKinds", COMPANY_KINDS);
+  const domains = parseList<DomainId>(formData, "domains", DOMAINS);
+  const goals: Goals = {
+    ...(salaryBand ? { salaryBand } : {}),
+    ...(visa ? { visa } : {}),
+    ...(track ? { track } : {}),
+    ...(companyKinds.length ? { companyKinds } : {}),
+    ...(domains.length ? { domains } : {}),
+  };
 
   if (!displayName || !Number.isFinite(yearsRaw) || yearsRaw < 1) {
-    redirect(`${from === "profile" ? "/profile" : "/onboarding"}?error=1`);
+    redirect(feedbackHref(from === "profile" ? "/profile" : "/onboarding", "error", "1"));
   }
 
   const profile: Profile = {
@@ -58,9 +90,10 @@ export async function saveProfile(formData: FormData) {
     uiLocale: asLocale(formData.get("uiLocale")),
     transcriptLocale: asLocale(formData.get("transcriptLocale")),
     updatedAt: new Date().toISOString(),
+    ...(Object.keys(goals).length ? { goals } : {}),
   };
 
   await writeProfile(profile);
   revalidatePath("/", "layout");
-  redirect("/");
+  redirect(feedbackHref("/", "ok", "profile"));
 }

@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { AnalysisError, analyzeWithAnthropic } from "@/lib/analysis/anthropic";
 import { extractPdfText } from "@/lib/analysis/pdf";
+import { feedbackHref } from "@/lib/feedback";
 import {
   appendEvaluation,
   readProfile,
@@ -11,7 +12,7 @@ import {
 } from "@/lib/storage/store";
 
 function fail(path: "/cv" | "/linkedin", code: string): never {
-  redirect(`${path}?error=${code}`);
+  redirect(feedbackHref(path, "error", code));
 }
 
 export async function analyzeCv(formData: FormData) {
@@ -65,7 +66,7 @@ export async function analyzeCv(formData: FormData) {
   }
 
   revalidatePath("/", "layout");
-  redirect("/cv");
+  redirect(feedbackHref("/cv", "ok", "cv"));
 }
 
 export async function analyzeLinkedin(formData: FormData) {
@@ -111,5 +112,5 @@ export async function analyzeLinkedin(formData: FormData) {
   }
 
   revalidatePath("/", "layout");
-  redirect("/linkedin");
+  redirect(feedbackHref("/linkedin", "ok", "linkedin"));
 }

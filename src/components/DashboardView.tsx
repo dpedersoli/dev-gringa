@@ -1,8 +1,16 @@
 import Link from "next/link";
+import { Copy, TipIcon } from "@/components/Glossary";
 import { latestByModule, profileScore, readinessScore, type Evaluation } from "@/lib/domain/evaluation";
 import { MODULE_IDS, type ModuleId, type Profile } from "@/lib/domain/profile";
 import { interviewHref } from "@/lib/interview/banks";
 import type { Dictionary } from "@/lib/i18n/dictionaries";
+import type { TipId } from "@/lib/i18n/tips";
+
+const MODULE_TIP: Partial<Record<ModuleId, TipId>> = {
+  tech_vibe: "vibe",
+  fit: "fit",
+  challenge: "challenge",
+};
 
 function moduleLabel(dict: Dictionary, id: ModuleId) {
   if (id === "cv") return dict.module_cv;
@@ -41,7 +49,9 @@ function ScoreParts({
         const done = score !== undefined;
         return (
           <li key={id} className="flex items-baseline justify-between gap-3">
-            <span>{moduleLabel(dict, id)}</span>
+            <span>
+              <Copy dict={dict} text={moduleLabel(dict, id)} />
+            </span>
             <span className={done ? "" : "text-[var(--muted)]"}>
               {done ? `${dict.scoreDone} · ${score}` : dict.scoreMissing}
             </span>
@@ -88,7 +98,9 @@ export function DashboardView({
 
       <section className="grid gap-4 md:grid-cols-2">
         <article className="border border-[var(--line)] bg-[var(--card)] p-5">
-          <p className="text-sm text-[var(--muted)]">{dict.scoreTitle}</p>
+          <p className="text-sm text-[var(--muted)]">
+            <Copy dict={dict} text={dict.scoreTitle} />
+          </p>
           <p className="mt-3 font-[family-name:var(--font-serif)] text-4xl">
             {composite !== null
               ? composite
@@ -97,16 +109,23 @@ export function DashboardView({
                 : dict.scoreUnmeasured}
           </p>
           <p className="mt-3 text-sm leading-6 text-[var(--muted)]">
-            {composite !== null
-              ? dict.scoreHintReady
-              : partial
-                ? dict.scoreHintPartial
-                : dict.scoreHint}
+            <Copy
+              dict={dict}
+              text={
+                composite !== null
+                  ? dict.scoreHintReady
+                  : partial
+                    ? dict.scoreHintPartial
+                    : dict.scoreHint
+              }
+            />
           </p>
           <ScoreParts dict={dict} ids={PROFILE_PARTS} latest={latest} />
         </article>
         <article className="border border-[var(--line)] bg-[var(--card)] p-5">
-          <p className="text-sm text-[var(--muted)]">{dict.readinessTitle}</p>
+          <p className="text-sm text-[var(--muted)]">
+            <Copy dict={dict} text={dict.readinessTitle} />
+          </p>
           <p className="mt-3 font-[family-name:var(--font-serif)] text-4xl">
             {readiness !== null
               ? readiness
@@ -115,11 +134,16 @@ export function DashboardView({
                 : dict.scoreUnmeasured}
           </p>
           <p className="mt-3 text-sm leading-6 text-[var(--muted)]">
-            {readiness !== null
-              ? dict.readinessHintReady
-              : readinessPartial
-                ? dict.readinessHintPartial
-                : dict.readinessHint}
+            <Copy
+              dict={dict}
+              text={
+                readiness !== null
+                  ? dict.readinessHintReady
+                  : readinessPartial
+                    ? dict.readinessHintPartial
+                    : dict.readinessHint
+              }
+            />
           </p>
           <ScoreParts dict={dict} ids={READINESS_PARTS} latest={latest} />
         </article>
@@ -143,11 +167,9 @@ export function DashboardView({
                 ? dict.scoreMissing
                 : dict.moduleLater;
             const label = moduleLabel(dict, id);
-            return (
-              <li
-                key={id}
-                className="flex items-baseline justify-between gap-4 py-3"
-              >
+            const tip = MODULE_TIP[id];
+            const name = (
+              <span className="inline-flex items-center">
                 {href ? (
                   <Link href={href} className="underline-offset-4 hover:underline">
                     {label}
@@ -155,6 +177,15 @@ export function DashboardView({
                 ) : (
                   <span>{label}</span>
                 )}
+                {tip ? <TipIcon dict={dict} id={tip} /> : null}
+              </span>
+            );
+            return (
+              <li
+                key={id}
+                className="flex items-baseline justify-between gap-4 py-3"
+              >
+                {name}
                 <span className="text-sm text-[var(--muted)]">{status}</span>
               </li>
             );

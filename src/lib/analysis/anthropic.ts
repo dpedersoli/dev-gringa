@@ -106,7 +106,10 @@ Rules:
 - example MUST be a rewritten spoken answer (1–4 sentences) the person could say in a real English-US interview, except for CV/LinkedIn artifacts where it is a rewritten bullet/headline they could paste.
 - There is NO fixed count. Return as many strengths and improvements as this artifact needs for this person. Do not pad. Do not stop at 3. Do not repeat the same gap. rank 1 is the highest-leverage move; then 2, 3, … with no gaps.
 - Each improvement is one real move: rewrite what is weak, add what is missing, or remove what hurts. Skip a kind that does not apply. Do not invent a fake add or remove.
-- Judge against what this person is pursuing in the stored profile (seniority, stack, markets, contract types). Do not invent extra career goals.
+- Judge against what this person is pursuing in the stored profile (seniority, stack, markets, contract types, and goals when they are present). Do not invent a salary band, visa stance, track, company kind, or domain that the profile left blank.
+- When goals.salaryBand is set, use it only as context for a recruiter screen. Do not invent a dollar figure.
+- When goals.track is management or both, mention people leadership only if the artifact already shows it. The matching catalog they see is IC engineering.
+- When goals.visa is remote_br, do not treat a missing US work visa as a defect in the artifact.
 - Judge interview transcripts through THIS module's lens only (recruiter STAR vs oral engineering vs generic remote fit). The same life story is a different answer in each stage; a later interviewer does not know the person.
 - Be specific to THIS artifact/transcript. No generic coaching. If an answer is empty, say so in evidence and score harshly.
 
@@ -122,6 +125,7 @@ ${JSON.stringify(
       stack: input.profile.stack,
       targetMarkets: input.profile.targetMarkets,
       contractTypes: input.profile.contractTypes,
+      ...(input.profile.goals ? { goals: input.profile.goals } : {}),
     },
     null,
     2,
@@ -299,6 +303,11 @@ Rules:
 - Empty or nearly empty speech: ask=false.
 - answerSec is how many seconds a spoken answer to THIS follow-up should take. Integer from 30 to 120. Use 0 when ask=false.
 - Profile stack for wording only, do not invent facts they did not attempt: ${input.profile.stack.join(", ") || "(none)"}
+- ${
+  input.profile.goals?.track
+    ? `Candidate track is ${input.profile.goals.track}. Probe inside that track. Do not switch them to another track.`
+    : "No IC-or-management track is set. Do not invent one."
+}
 
 Fixed question:
 ${input.question}
