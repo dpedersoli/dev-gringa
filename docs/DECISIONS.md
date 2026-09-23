@@ -378,3 +378,21 @@ Formato: número, data, status, contexto, decisão, porquê, consequências. Nã
 - **Por quê:** Quem não conhece o vocabulário (visto, IC, domínio) ainda precisa de um perfil inicial. A correção manual tem de continuar disponível, porque a inferência pode errar o que a pessoa quer.
 - **Consequências:** O bloco direto de D-042 permanece. A Fase 6 (desafio, viva voz, mobile) não absorve esta tarefa.
 
+## D-045 — Mapa fixo das perguntas indiretas
+
+- **Data:** 23 set 2026
+- **Status:** vigente
+- **Contexto:** O autor abriu a tarefa de D-044 e fechou o desenho: escolha fixa, página própria, anos e stack entram, responder de novo substitui o campo.
+- **Decisão:** A página `/questions` liga do perfil e do primeiro acesso. Não há modelo. Cada pergunta vira um campo por um mapa no repositório: anos, stack, mercados, contratos, faixa, visto, tipo de empresa, IC ou gestão, domínio. Nome e idioma da tela ficam só no formulário do perfil. A senioridade continua pleno. Anos viram 2, 4, 6 ou 8; se o perfil já existe, uma opção mantém o número exato. “Ainda não sei” apaga só aquele campo quando nenhuma outra opção do grupo está marcada; se as duas coisas vierem juntas, a opção marcada vale. Os objetivos saem só desta resposta. Depois o app abre `/profile`.
+- **Por quê:** A pergunta não pode pedir o nome do campo, e a resposta não pode inventar mercado ou contrato quando a pessoa marcou que ainda não sabe.
+- **Consequências:** Mercado e contrato vazios nesta página não viram EUA nem contrato longo. O formulário direto continua com esse padrão quando o campo vai vazio. Refazer as perguntas não trava o perfil. A Fase 6 continua fora.
+
+## D-046 — Erro nas perguntas mantém o que já foi marcado
+
+- **Data:** 23 set 2026
+- **Status:** vigente
+- **Contexto:** No questionário de D-045, uma resposta faltando recarregava `/questions`. A página voltava ao perfil salvo e apagava o que a pessoa tinha acabado de marcar.
+- **Decisão:** A resposta faltando fica anunciada no próprio grupo, e as marcas da tela continuam. Sair da página desiste, sem gravar.
+- **Por quê:** A pessoa precisa completar o grupo ou corrigir uma marca. Perder o resto do formulário empurra ela a desistir ou a marcar de novo o que já estava certo.
+- **Consequências:** Gravar só acontece quando cada grupo tem uma opção ou Ainda não sei. A Fase 6 continua fora.
+

@@ -17,7 +17,7 @@ Detalhe de implementação só existe para a fase atual. O resto é esboço.
 | Cursos com URL | Conteúdo | 5 | feita |
 | Questionário opcional de objetivos | Calibra | 5 | feita |
 | Política live code × IA | Conteúdo / rótulo | 5 | feita |
-| Questionário indireto que pré-preenche o perfil | Calibra | a abrir (D-044) | anotado |
+| Questionário indireto que pré-preenche o perfil | Calibra | aberta (D-044, D-045) | `/questions` |
 | Desafio (só enunciado) | Plano oral | 6 | esboço |
 | Viva voz contínuo | Evolução da entrevista | 6 | esboço |
 | Mobile | Canal | 6 | esboço |

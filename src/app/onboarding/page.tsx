@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import { AppShell } from "@/components/AppShell";
 import { ProfileForm } from "@/components/ProfileForm";
@@ -27,6 +28,11 @@ export default async function OnboardingPage({
       </h1>
       <p className="mt-3 max-w-xl text-[var(--muted)] leading-7">
         {dict.onboardingLead}
+      </p>
+      <p className="mt-3 text-sm">
+        <Link href="/questions" className="underline underline-offset-4">
+          {dict.intakeLink}
+        </Link>
       </p>
       <div className="mt-8">
         <ProfileForm

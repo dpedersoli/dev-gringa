@@ -7,7 +7,7 @@ Esta pasta é a **memória do projeto**. Conversas no Cursor, canvases temporár
 1. [STATUS.md](STATUS.md) — fase atual, o que está acontecendo, o que falta.
 2. [DECISIONS.md](DECISIONS.md) — o que foi decidido e **por quê**.
 3. [CHANGELOG.md](CHANGELOG.md) — o que já aconteceu, em ordem.
-4. A fase marcada em STATUS. A Fase 5 está encerrada: [05-matching.md](phases/05-matching.md). A próxima tarefa (D-044) ainda não tem spec de fase.
+4. A fase marcada em STATUS. A Fase 5 está encerrada: [05-matching.md](phases/05-matching.md). A tarefa aberta é o questionário em `/questions` (D-044, D-045), sem spec de fase nova.
 5. Produto em `product/` se a dúvida for de visão, não de implementação.
 
 ## Mapa

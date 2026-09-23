@@ -14,6 +14,6 @@ Antes de qualquer trabalho: `docs/STATUS.md`, `docs/DECISIONS.md`, `docs/phases/
 
 Fase 3 = CV + LinkedIn via Anthropic (`assertEvaluation` antes de persistir). Encerrada.
 Fase 4 = entrevistas faladas (timer, inglês-US, transcrição, `assertEvaluation`, pergunta extra D-033). Código entregue.
-Fase 5 = matching, encerrada e conferida. Canais, empresas e cursos filtrados pelo perfil (D-036, D-037, D-038, D-040). Questionário opcional no perfil (D-042). Rótulo de live code × IA por empresa (D-043). Termo que não é óbvio tem ícone (D-041). Próxima tarefa anotada, sem código: questionário indireto que pré-preenche o perfil e deixa o perfil editável (D-044). Sem viva voz contínuo, auth. Fase 6 não aberta.
+Fase 5 = matching, encerrada e conferida. Canais, empresas e cursos filtrados pelo perfil (D-036, D-037, D-038, D-040). Questionário opcional no perfil (D-042). Rótulo de live code × IA por empresa (D-043). Termo que não é óbvio tem ícone (D-041). Questionário indireto em `/questions` conferido em 23 set 2026: pré-preenche o perfil e deixa o perfil editável (D-044, D-045, D-046). Ainda fora do git. Sem viva voz contínuo, auth. Fase 6 não aberta.
 
 Persistência: `data/*.json` via `src/lib/storage`. Avaliação: `assertEvaluation` em `src/lib/domain/evaluation.ts`. Segredos em `.env` (não commitar). Nomes das variáveis em `.env.example`.

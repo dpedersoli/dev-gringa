@@ -2,6 +2,15 @@
 
 Eventos do projeto, do mais recente para o mais antigo. Fatos, não planos.
 
+## 2026-09-23 — Erro nas perguntas mantém as marcas
+
+- Em `/questions`, um grupo sem resposta mostra o aviso nele mesmo. O que já estava marcado continua na tela. Sair sem enviar de novo não grava (D-046).
+- O autor conferiu esse aviso ao vivo no mesmo dia. O questionário indireto fica conferido e ainda fora do git.
+
+## 2026-09-23 — Perguntas indiretas preenchem o perfil
+
+- `/questions` pergunta sem nomear o campo e grava anos, stack, mercados, contratos e os objetivos. O perfil continua editável. Não há modelo (D-045).
+
 ## 2026-09-22 — Fase 5 conferida
 
 - O autor validou ao vivo o questionário direto do perfil e o rótulo de live code por empresa. Com canais, empresas e cursos já conferidos no mesmo dia, a Fase 5 fecha.

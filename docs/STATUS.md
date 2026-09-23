@@ -1,12 +1,12 @@
 # STATUS
 
-Última atualização: 22 set 2026.
+Última atualização: 23 set 2026.
 
 ## Agora
 
 **Fase 5 — Matching.** Encerrada e conferida ao vivo em 22 set 2026. Canais, empresas, cursos, questionário direto e o rótulo de live code × IA estão em `/matching`.
 
-**Próxima tarefa, sem fase aberta e sem código (D-044).** Um questionário de perguntas indiretas pré-preenche os campos do perfil. Depois disso o perfil continua editável. Não é a Fase 6.
+**Tarefa conferida, sem fase nova e ainda fora do git (D-044, D-045, D-046).** O questionário de `/questions` foi conferido ao vivo em 23 set 2026. Uma resposta faltando avisa no grupo e mantém as marcas. O perfil continua editável. A Fase 6 continua esboço.
 
 ## Fase atual
 
@@ -16,7 +16,7 @@
 | Nome | Matching |
 | Spec | `docs/phases/05-matching.md` |
 | Código | `/matching` |
-| Falta para fechar | Nada. A próxima tarefa está anotada e ainda não é uma fase. |
+| Falta para fechar | Nada na Fase 5. O questionário em `/questions` foi conferido e ainda não entrou no git. |
 
 ## O que já aconteceu
 
@@ -28,9 +28,9 @@
 
 ## O que está acontecendo
 
-Nada em construção. A Fase 6 (desafio, viva voz, mobile) continua esboço.
+O questionário indireto está em código (`/questions`, D-045). A Fase 6 (desafio, viva voz, mobile) continua esboço.
 
-A tarefa anotada para a próxima abertura: um formulário com várias perguntas indiretas. As respostas pré-definem os campos do perfil. O usuário edita o perfil quando quiser, também depois que o questionário já definiu esses campos (D-044).
+O perfil e o primeiro acesso ligam para essas perguntas. As respostas substituem o campo. “Ainda não sei” apaga só aquele campo quando nenhuma outra opção do grupo está marcada. Nome e idioma da tela ficam no perfil. Se faltar uma resposta, o aviso fica no grupo e as marcas da tela continuam (D-046).
 
 ## Como rodar
 

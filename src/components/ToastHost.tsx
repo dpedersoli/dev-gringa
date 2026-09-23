@@ -53,6 +53,7 @@ export function feedbackError(dict: Dictionary, code: string) {
 
 function feedbackSuccess(dict: Dictionary, code: string) {
   if (code === "profile") return dict.toastProfile;
+  if (code === "questions") return dict.toastQuestions;
   if (code === "cv") return dict.toastCv;
   if (code === "linkedin") return dict.toastLinkedin;
   if (code === "interview") return dict.toastInterview;
